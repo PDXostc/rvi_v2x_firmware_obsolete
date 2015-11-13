@@ -1,0 +1,1923 @@
+
+JLR_LED.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000094a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000006  00802000  0000094a  000009de  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000010  00802006  00802006  000009e4  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000009e4  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000230  00000000  00000000  00000a14  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00004c95  00000000  00000000  00000c44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000016b7  00000000  00000000  000058d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00004f79  00000000  00000000  00006f90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000510  00000000  00000000  0000bf0c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0002d291  00000000  00000000  0000c41c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000015a1  00000000  00000000  000396ad  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000258  00000000  00000000  0003ac4e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_macro  0000b7e0  00000000  00000000  0003aea6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	fd c0       	rjmp	.+506    	; 0x1fc <__ctors_end>
+   2:	00 00       	nop
+   4:	1f c1       	rjmp	.+574    	; 0x244 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	1d c1       	rjmp	.+570    	; 0x244 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	1b c1       	rjmp	.+566    	; 0x244 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	19 c1       	rjmp	.+562    	; 0x244 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	17 c1       	rjmp	.+558    	; 0x244 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	15 c1       	rjmp	.+554    	; 0x244 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	13 c1       	rjmp	.+550    	; 0x244 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	11 c1       	rjmp	.+546    	; 0x244 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	0f c1       	rjmp	.+542    	; 0x244 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	70 c2       	rjmp	.+1248   	; 0x50a <__vector_10>
+  2a:	00 00       	nop
+  2c:	6d c1       	rjmp	.+730    	; 0x308 <__vector_11>
+  2e:	00 00       	nop
+  30:	09 c1       	rjmp	.+530    	; 0x244 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	07 c1       	rjmp	.+526    	; 0x244 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	05 c1       	rjmp	.+522    	; 0x244 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	03 c1       	rjmp	.+518    	; 0x244 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	01 c1       	rjmp	.+514    	; 0x244 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	ff c0       	rjmp	.+510    	; 0x244 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	fd c0       	rjmp	.+506    	; 0x244 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	fb c0       	rjmp	.+502    	; 0x244 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	f9 c0       	rjmp	.+498    	; 0x244 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	f7 c0       	rjmp	.+494    	; 0x244 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	f5 c0       	rjmp	.+490    	; 0x244 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	f3 c0       	rjmp	.+486    	; 0x244 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	f1 c0       	rjmp	.+482    	; 0x244 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	ef c0       	rjmp	.+478    	; 0x244 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	ed c0       	rjmp	.+474    	; 0x244 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	eb c0       	rjmp	.+470    	; 0x244 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	e9 c0       	rjmp	.+466    	; 0x244 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	e7 c0       	rjmp	.+462    	; 0x244 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	e5 c0       	rjmp	.+458    	; 0x244 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	e3 c0       	rjmp	.+454    	; 0x244 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	e1 c0       	rjmp	.+450    	; 0x244 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	df c0       	rjmp	.+446    	; 0x244 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	dd c0       	rjmp	.+442    	; 0x244 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	db c0       	rjmp	.+438    	; 0x244 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	d9 c0       	rjmp	.+434    	; 0x244 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	d7 c0       	rjmp	.+430    	; 0x244 <__bad_interrupt>
+  96:	00 00       	nop
+  98:	d5 c0       	rjmp	.+426    	; 0x244 <__bad_interrupt>
+  9a:	00 00       	nop
+  9c:	d3 c0       	rjmp	.+422    	; 0x244 <__bad_interrupt>
+  9e:	00 00       	nop
+  a0:	d1 c0       	rjmp	.+418    	; 0x244 <__bad_interrupt>
+  a2:	00 00       	nop
+  a4:	cf c0       	rjmp	.+414    	; 0x244 <__bad_interrupt>
+  a6:	00 00       	nop
+  a8:	cd c0       	rjmp	.+410    	; 0x244 <__bad_interrupt>
+  aa:	00 00       	nop
+  ac:	cb c0       	rjmp	.+406    	; 0x244 <__bad_interrupt>
+  ae:	00 00       	nop
+  b0:	c9 c0       	rjmp	.+402    	; 0x244 <__bad_interrupt>
+  b2:	00 00       	nop
+  b4:	c7 c0       	rjmp	.+398    	; 0x244 <__bad_interrupt>
+  b6:	00 00       	nop
+  b8:	c5 c0       	rjmp	.+394    	; 0x244 <__bad_interrupt>
+  ba:	00 00       	nop
+  bc:	c3 c0       	rjmp	.+390    	; 0x244 <__bad_interrupt>
+  be:	00 00       	nop
+  c0:	c1 c0       	rjmp	.+386    	; 0x244 <__bad_interrupt>
+  c2:	00 00       	nop
+  c4:	bf c0       	rjmp	.+382    	; 0x244 <__bad_interrupt>
+  c6:	00 00       	nop
+  c8:	bd c0       	rjmp	.+378    	; 0x244 <__bad_interrupt>
+  ca:	00 00       	nop
+  cc:	bb c0       	rjmp	.+374    	; 0x244 <__bad_interrupt>
+  ce:	00 00       	nop
+  d0:	b9 c0       	rjmp	.+370    	; 0x244 <__bad_interrupt>
+  d2:	00 00       	nop
+  d4:	b7 c0       	rjmp	.+366    	; 0x244 <__bad_interrupt>
+  d6:	00 00       	nop
+  d8:	b5 c0       	rjmp	.+362    	; 0x244 <__bad_interrupt>
+  da:	00 00       	nop
+  dc:	b3 c0       	rjmp	.+358    	; 0x244 <__bad_interrupt>
+  de:	00 00       	nop
+  e0:	b1 c0       	rjmp	.+354    	; 0x244 <__bad_interrupt>
+  e2:	00 00       	nop
+  e4:	af c0       	rjmp	.+350    	; 0x244 <__bad_interrupt>
+  e6:	00 00       	nop
+  e8:	ad c0       	rjmp	.+346    	; 0x244 <__bad_interrupt>
+  ea:	00 00       	nop
+  ec:	ab c0       	rjmp	.+342    	; 0x244 <__bad_interrupt>
+  ee:	00 00       	nop
+  f0:	a9 c0       	rjmp	.+338    	; 0x244 <__bad_interrupt>
+  f2:	00 00       	nop
+  f4:	a7 c0       	rjmp	.+334    	; 0x244 <__bad_interrupt>
+  f6:	00 00       	nop
+  f8:	a5 c0       	rjmp	.+330    	; 0x244 <__bad_interrupt>
+  fa:	00 00       	nop
+  fc:	a3 c0       	rjmp	.+326    	; 0x244 <__bad_interrupt>
+  fe:	00 00       	nop
+ 100:	a1 c0       	rjmp	.+322    	; 0x244 <__bad_interrupt>
+ 102:	00 00       	nop
+ 104:	9f c0       	rjmp	.+318    	; 0x244 <__bad_interrupt>
+ 106:	00 00       	nop
+ 108:	9d c0       	rjmp	.+314    	; 0x244 <__bad_interrupt>
+ 10a:	00 00       	nop
+ 10c:	9b c0       	rjmp	.+310    	; 0x244 <__bad_interrupt>
+ 10e:	00 00       	nop
+ 110:	99 c0       	rjmp	.+306    	; 0x244 <__bad_interrupt>
+ 112:	00 00       	nop
+ 114:	97 c0       	rjmp	.+302    	; 0x244 <__bad_interrupt>
+ 116:	00 00       	nop
+ 118:	95 c0       	rjmp	.+298    	; 0x244 <__bad_interrupt>
+ 11a:	00 00       	nop
+ 11c:	93 c0       	rjmp	.+294    	; 0x244 <__bad_interrupt>
+ 11e:	00 00       	nop
+ 120:	91 c0       	rjmp	.+290    	; 0x244 <__bad_interrupt>
+ 122:	00 00       	nop
+ 124:	8f c0       	rjmp	.+286    	; 0x244 <__bad_interrupt>
+ 126:	00 00       	nop
+ 128:	8d c0       	rjmp	.+282    	; 0x244 <__bad_interrupt>
+ 12a:	00 00       	nop
+ 12c:	8b c0       	rjmp	.+278    	; 0x244 <__bad_interrupt>
+ 12e:	00 00       	nop
+ 130:	89 c0       	rjmp	.+274    	; 0x244 <__bad_interrupt>
+ 132:	00 00       	nop
+ 134:	87 c0       	rjmp	.+270    	; 0x244 <__bad_interrupt>
+ 136:	00 00       	nop
+ 138:	85 c0       	rjmp	.+266    	; 0x244 <__bad_interrupt>
+ 13a:	00 00       	nop
+ 13c:	83 c0       	rjmp	.+262    	; 0x244 <__bad_interrupt>
+ 13e:	00 00       	nop
+ 140:	81 c0       	rjmp	.+258    	; 0x244 <__bad_interrupt>
+ 142:	00 00       	nop
+ 144:	7f c0       	rjmp	.+254    	; 0x244 <__bad_interrupt>
+ 146:	00 00       	nop
+ 148:	7d c0       	rjmp	.+250    	; 0x244 <__bad_interrupt>
+ 14a:	00 00       	nop
+ 14c:	7b c0       	rjmp	.+246    	; 0x244 <__bad_interrupt>
+ 14e:	00 00       	nop
+ 150:	79 c0       	rjmp	.+242    	; 0x244 <__bad_interrupt>
+ 152:	00 00       	nop
+ 154:	77 c0       	rjmp	.+238    	; 0x244 <__bad_interrupt>
+ 156:	00 00       	nop
+ 158:	75 c0       	rjmp	.+234    	; 0x244 <__bad_interrupt>
+ 15a:	00 00       	nop
+ 15c:	73 c0       	rjmp	.+230    	; 0x244 <__bad_interrupt>
+ 15e:	00 00       	nop
+ 160:	71 c0       	rjmp	.+226    	; 0x244 <__bad_interrupt>
+ 162:	00 00       	nop
+ 164:	6f c0       	rjmp	.+222    	; 0x244 <__bad_interrupt>
+ 166:	00 00       	nop
+ 168:	6d c0       	rjmp	.+218    	; 0x244 <__bad_interrupt>
+ 16a:	00 00       	nop
+ 16c:	6b c0       	rjmp	.+214    	; 0x244 <__bad_interrupt>
+ 16e:	00 00       	nop
+ 170:	69 c0       	rjmp	.+210    	; 0x244 <__bad_interrupt>
+ 172:	00 00       	nop
+ 174:	67 c0       	rjmp	.+206    	; 0x244 <__bad_interrupt>
+ 176:	00 00       	nop
+ 178:	65 c0       	rjmp	.+202    	; 0x244 <__bad_interrupt>
+ 17a:	00 00       	nop
+ 17c:	63 c0       	rjmp	.+198    	; 0x244 <__bad_interrupt>
+ 17e:	00 00       	nop
+ 180:	61 c0       	rjmp	.+194    	; 0x244 <__bad_interrupt>
+ 182:	00 00       	nop
+ 184:	5f c0       	rjmp	.+190    	; 0x244 <__bad_interrupt>
+ 186:	00 00       	nop
+ 188:	5d c0       	rjmp	.+186    	; 0x244 <__bad_interrupt>
+ 18a:	00 00       	nop
+ 18c:	5b c0       	rjmp	.+182    	; 0x244 <__bad_interrupt>
+ 18e:	00 00       	nop
+ 190:	59 c0       	rjmp	.+178    	; 0x244 <__bad_interrupt>
+ 192:	00 00       	nop
+ 194:	57 c0       	rjmp	.+174    	; 0x244 <__bad_interrupt>
+ 196:	00 00       	nop
+ 198:	55 c0       	rjmp	.+170    	; 0x244 <__bad_interrupt>
+ 19a:	00 00       	nop
+ 19c:	53 c0       	rjmp	.+166    	; 0x244 <__bad_interrupt>
+ 19e:	00 00       	nop
+ 1a0:	51 c0       	rjmp	.+162    	; 0x244 <__bad_interrupt>
+ 1a2:	00 00       	nop
+ 1a4:	4f c0       	rjmp	.+158    	; 0x244 <__bad_interrupt>
+ 1a6:	00 00       	nop
+ 1a8:	4d c0       	rjmp	.+154    	; 0x244 <__bad_interrupt>
+ 1aa:	00 00       	nop
+ 1ac:	4b c0       	rjmp	.+150    	; 0x244 <__bad_interrupt>
+ 1ae:	00 00       	nop
+ 1b0:	49 c0       	rjmp	.+146    	; 0x244 <__bad_interrupt>
+ 1b2:	00 00       	nop
+ 1b4:	47 c0       	rjmp	.+142    	; 0x244 <__bad_interrupt>
+ 1b6:	00 00       	nop
+ 1b8:	45 c0       	rjmp	.+138    	; 0x244 <__bad_interrupt>
+ 1ba:	00 00       	nop
+ 1bc:	43 c0       	rjmp	.+134    	; 0x244 <__bad_interrupt>
+ 1be:	00 00       	nop
+ 1c0:	41 c0       	rjmp	.+130    	; 0x244 <__bad_interrupt>
+ 1c2:	00 00       	nop
+ 1c4:	3f c0       	rjmp	.+126    	; 0x244 <__bad_interrupt>
+ 1c6:	00 00       	nop
+ 1c8:	3d c0       	rjmp	.+122    	; 0x244 <__bad_interrupt>
+ 1ca:	00 00       	nop
+ 1cc:	3b c0       	rjmp	.+118    	; 0x244 <__bad_interrupt>
+ 1ce:	00 00       	nop
+ 1d0:	39 c0       	rjmp	.+114    	; 0x244 <__bad_interrupt>
+ 1d2:	00 00       	nop
+ 1d4:	37 c0       	rjmp	.+110    	; 0x244 <__bad_interrupt>
+ 1d6:	00 00       	nop
+ 1d8:	35 c0       	rjmp	.+106    	; 0x244 <__bad_interrupt>
+ 1da:	00 00       	nop
+ 1dc:	33 c0       	rjmp	.+102    	; 0x244 <__bad_interrupt>
+ 1de:	00 00       	nop
+ 1e0:	31 c0       	rjmp	.+98     	; 0x244 <__bad_interrupt>
+ 1e2:	00 00       	nop
+ 1e4:	2f c0       	rjmp	.+94     	; 0x244 <__bad_interrupt>
+ 1e6:	00 00       	nop
+ 1e8:	2d c0       	rjmp	.+90     	; 0x244 <__bad_interrupt>
+ 1ea:	00 00       	nop
+ 1ec:	2b c0       	rjmp	.+86     	; 0x244 <__bad_interrupt>
+ 1ee:	00 00       	nop
+ 1f0:	29 c0       	rjmp	.+82     	; 0x244 <__bad_interrupt>
+ 1f2:	00 00       	nop
+ 1f4:	27 c0       	rjmp	.+78     	; 0x244 <__bad_interrupt>
+ 1f6:	00 00       	nop
+ 1f8:	25 c0       	rjmp	.+74     	; 0x244 <__bad_interrupt>
+	...
+
+000001fc <__ctors_end>:
+ 1fc:	11 24       	eor	r1, r1
+ 1fe:	1f be       	out	0x3f, r1	; 63
+ 200:	cf ef       	ldi	r28, 0xFF	; 255
+ 202:	cd bf       	out	0x3d, r28	; 61
+ 204:	df e3       	ldi	r29, 0x3F	; 63
+ 206:	de bf       	out	0x3e, r29	; 62
+ 208:	00 e0       	ldi	r16, 0x00	; 0
+ 20a:	0c bf       	out	0x3c, r16	; 60
+ 20c:	18 be       	out	0x38, r1	; 56
+ 20e:	19 be       	out	0x39, r1	; 57
+ 210:	1a be       	out	0x3a, r1	; 58
+ 212:	1b be       	out	0x3b, r1	; 59
+
+00000214 <__do_copy_data>:
+ 214:	10 e2       	ldi	r17, 0x20	; 32
+ 216:	a0 e0       	ldi	r26, 0x00	; 0
+ 218:	b0 e2       	ldi	r27, 0x20	; 32
+ 21a:	ea e4       	ldi	r30, 0x4A	; 74
+ 21c:	f9 e0       	ldi	r31, 0x09	; 9
+ 21e:	00 e0       	ldi	r16, 0x00	; 0
+ 220:	0b bf       	out	0x3b, r16	; 59
+ 222:	02 c0       	rjmp	.+4      	; 0x228 <__do_copy_data+0x14>
+ 224:	07 90       	elpm	r0, Z+
+ 226:	0d 92       	st	X+, r0
+ 228:	a6 30       	cpi	r26, 0x06	; 6
+ 22a:	b1 07       	cpc	r27, r17
+ 22c:	d9 f7       	brne	.-10     	; 0x224 <__do_copy_data+0x10>
+ 22e:	1b be       	out	0x3b, r1	; 59
+
+00000230 <__do_clear_bss>:
+ 230:	20 e2       	ldi	r18, 0x20	; 32
+ 232:	a6 e0       	ldi	r26, 0x06	; 6
+ 234:	b0 e2       	ldi	r27, 0x20	; 32
+ 236:	01 c0       	rjmp	.+2      	; 0x23a <.do_clear_bss_start>
+
+00000238 <.do_clear_bss_loop>:
+ 238:	1d 92       	st	X+, r1
+
+0000023a <.do_clear_bss_start>:
+ 23a:	a6 31       	cpi	r26, 0x16	; 22
+ 23c:	b2 07       	cpc	r27, r18
+ 23e:	e1 f7       	brne	.-8      	; 0x238 <.do_clear_bss_loop>
+ 240:	36 d3       	rcall	.+1644   	; 0x8ae <main>
+ 242:	81 c3       	rjmp	.+1794   	; 0x946 <_exit>
+
+00000244 <__bad_interrupt>:
+ 244:	dd ce       	rjmp	.-582    	; 0x0 <__vectors>
+
+00000246 <rtc_get_time>:
+ *       sleep.
+ * \note Without this errata this function can block for up to 1 RTC
+ *       clock source cycle after waking up from sleep.
+ */
+uint32_t rtc_get_time(void)
+{
+ 246:	0f 93       	push	r16
+ 248:	1f 93       	push	r17
+ * \brief Check if RTC is busy synchronizing
+ */
+__always_inline bool rtc_is_busy(void);
+__always_inline bool rtc_is_busy(void)
+{
+	return RTC.STATUS & RTC_SYNCBUSY_bm;
+ 24a:	e0 e0       	ldi	r30, 0x00	; 0
+ 24c:	f4 e0       	ldi	r31, 0x04	; 4
+ 24e:	81 81       	ldd	r24, Z+1	; 0x01
+{
+	irqflags_t flags;
+	uint16_t   count_high;
+	uint16_t   count_low;
+
+	while (rtc_is_busy());
+ 250:	80 fd       	sbrc	r24, 0
+ 252:	fd cf       	rjmp	.-6      	; 0x24e <rtc_get_time+0x8>
+
+typedef uint8_t irqflags_t;
+
+static inline irqflags_t cpu_irq_save(void)
+{
+	irqflags_t flags = SREG;
+ 254:	2f b7       	in	r18, 0x3f	; 63
+	cpu_irq_disable();
+ 256:	f8 94       	cli
+
+	flags = cpu_irq_save();
+	count_high = rtc_data.counter_high;
+ 258:	40 91 0c 20 	lds	r20, 0x200C
+ 25c:	50 91 0d 20 	lds	r21, 0x200D
+	count_low = RTC.CNT;
+ 260:	e0 e0       	ldi	r30, 0x00	; 0
+ 262:	f4 e0       	ldi	r31, 0x04	; 4
+ 264:	80 85       	ldd	r24, Z+8	; 0x08
+ 266:	91 85       	ldd	r25, Z+9	; 0x09
+	// Test for possible pending increase of high count value
+	if ((count_low == 0) && (RTC.INTFLAGS & RTC_OVFIF_bm))
+ 268:	00 97       	sbiw	r24, 0x00	; 0
+ 26a:	29 f4       	brne	.+10     	; 0x276 <rtc_get_time+0x30>
+ 26c:	33 81       	ldd	r19, Z+3	; 0x03
+ 26e:	30 ff       	sbrs	r19, 0
+ 270:	02 c0       	rjmp	.+4      	; 0x276 <rtc_get_time+0x30>
+		count_high++;
+ 272:	4f 5f       	subi	r20, 0xFF	; 255
+ 274:	5f 4f       	sbci	r21, 0xFF	; 255
+}
+
+static inline void cpu_irq_restore(irqflags_t flags)
+{
+	barrier();
+	SREG = flags;
+ 276:	2f bf       	out	0x3f, r18	; 63
+	cpu_irq_restore(flags);
+
+	return ((uint32_t)count_high << 16) | count_low;
+ 278:	60 e0       	ldi	r22, 0x00	; 0
+ 27a:	70 e0       	ldi	r23, 0x00	; 0
+ 27c:	ba 01       	movw	r22, r20
+ 27e:	55 27       	eor	r21, r21
+ 280:	44 27       	eor	r20, r20
+ 282:	a0 e0       	ldi	r26, 0x00	; 0
+ 284:	b0 e0       	ldi	r27, 0x00	; 0
+ 286:	8a 01       	movw	r16, r20
+ 288:	9b 01       	movw	r18, r22
+ 28a:	08 2b       	or	r16, r24
+ 28c:	19 2b       	or	r17, r25
+ 28e:	2a 2b       	or	r18, r26
+ 290:	3b 2b       	or	r19, r27
+ 292:	c9 01       	movw	r24, r18
+ 294:	b8 01       	movw	r22, r16
+}
+ 296:	1f 91       	pop	r17
+ 298:	0f 91       	pop	r16
+ 29a:	08 95       	ret
+
+0000029c <rtc_set_alarm>:
+ * \param time Absolute time value. See also \ref rtc_min_alarm_time
+ * \pre Needs interrupts disabled if used from several contexts
+ */
+void rtc_set_alarm(uint32_t time)
+{
+	RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+ 29c:	e0 e0       	ldi	r30, 0x00	; 0
+ 29e:	f4 e0       	ldi	r31, 0x04	; 4
+ 2a0:	21 e0       	ldi	r18, 0x01	; 1
+ 2a2:	22 83       	std	Z+2, r18	; 0x02
+	RTC.COMP = time;
+ 2a4:	64 87       	std	Z+12, r22	; 0x0c
+ 2a6:	75 87       	std	Z+13, r23	; 0x0d
+	rtc_data.alarm_low = time;
+ 2a8:	60 93 10 20 	sts	0x2010, r22
+ 2ac:	70 93 11 20 	sts	0x2011, r23
+	rtc_data.alarm_high = time >> 16;
+ 2b0:	80 93 0e 20 	sts	0x200E, r24
+ 2b4:	90 93 0f 20 	sts	0x200F, r25
+ * \brief Check if RTC is busy synchronizing
+ */
+__always_inline bool rtc_is_busy(void);
+__always_inline bool rtc_is_busy(void)
+{
+	return RTC.STATUS & RTC_SYNCBUSY_bm;
+ 2b8:	81 81       	ldd	r24, Z+1	; 0x01
+	RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+	RTC.COMP = time;
+	rtc_data.alarm_low = time;
+	rtc_data.alarm_high = time >> 16;
+
+	while (rtc_is_busy());
+ 2ba:	80 fd       	sbrc	r24, 0
+ 2bc:	fd cf       	rjmp	.-6      	; 0x2b8 <rtc_set_alarm+0x1c>
+
+	RTC.INTFLAGS = RTC_COMPIF_bm;
+ 2be:	e0 e0       	ldi	r30, 0x00	; 0
+ 2c0:	f4 e0       	ldi	r31, 0x04	; 4
+ 2c2:	82 e0       	ldi	r24, 0x02	; 2
+ 2c4:	83 83       	std	Z+3, r24	; 0x03
+	RTC.INTCTRL = (uint8_t)RTC_COMPARE_INT_LEVEL
+ 2c6:	85 e0       	ldi	r24, 0x05	; 5
+ 2c8:	82 83       	std	Z+2, r24	; 0x02
+ 2ca:	08 95       	ret
+
+000002cc <rtc_set_callback>:
+ *
+ * \param callback Callback function pointer
+ */
+void rtc_set_callback(rtc_callback_t callback)
+{
+	rtc_data.callback = callback;
+ 2cc:	80 93 12 20 	sts	0x2012, r24
+ 2d0:	90 93 13 20 	sts	0x2013, r25
+ 2d4:	08 95       	ret
+
+000002d6 <rtc_init>:
+ * \note The RTC clock source used by the RTC module should be set up before
+ *       calling this function. 
+ */
+void rtc_init(void)
+{
+	sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_RTC);
+ 2d6:	64 e0       	ldi	r22, 0x04	; 4
+ 2d8:	80 e0       	ldi	r24, 0x00	; 0
+ 2da:	ea d1       	rcall	.+980    	; 0x6b0 <sysclk_enable_module>
+	RTC.PER = 0xffff;
+ 2dc:	e0 e0       	ldi	r30, 0x00	; 0
+ 2de:	f4 e0       	ldi	r31, 0x04	; 4
+ 2e0:	8f ef       	ldi	r24, 0xFF	; 255
+ 2e2:	9f ef       	ldi	r25, 0xFF	; 255
+ 2e4:	82 87       	std	Z+10, r24	; 0x0a
+ 2e6:	93 87       	std	Z+11, r25	; 0x0b
+	RTC.CNT = 0;
+ 2e8:	10 86       	std	Z+8, r1	; 0x08
+ 2ea:	11 86       	std	Z+9, r1	; 0x09
+
+typedef uint8_t irqflags_t;
+
+static inline irqflags_t cpu_irq_save(void)
+{
+	irqflags_t flags = SREG;
+ 2ec:	8f b7       	in	r24, 0x3f	; 63
+	cpu_irq_disable();
+ 2ee:	f8 94       	cli
+	Assert(sleepmgr_locks[mode] < 0xff);
+
+	// Enter a critical section
+	flags = cpu_irq_save();
+
+	++sleepmgr_locks[mode];
+ 2f0:	e9 e0       	ldi	r30, 0x09	; 9
+ 2f2:	f0 e2       	ldi	r31, 0x20	; 32
+ 2f4:	90 81       	ld	r25, Z
+ 2f6:	9f 5f       	subi	r25, 0xFF	; 255
+ 2f8:	90 83       	st	Z, r25
+}
+
+static inline void cpu_irq_restore(irqflags_t flags)
+{
+	barrier();
+	SREG = flags;
+ 2fa:	8f bf       	out	0x3f, r24	; 63
+	/* Since overflow interrupt is needed all the time we limit sleep to
+	 * power-save.
+	 */
+	sleepmgr_lock_mode(SLEEPMGR_PSAVE);
+	RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+ 2fc:	e0 e0       	ldi	r30, 0x00	; 0
+ 2fe:	f4 e0       	ldi	r31, 0x04	; 4
+ 300:	81 e0       	ldi	r24, 0x01	; 1
+ 302:	82 83       	std	Z+2, r24	; 0x02
+	RTC.CTRL = CONFIG_RTC_PRESCALER;
+ 304:	80 83       	st	Z, r24
+ 306:	08 95       	ret
+
+00000308 <__vector_11>:
+/**
+ * \internal
+ * \brief Compare interrupt used for alarm
+ */
+ISR(RTC_COMP_vect)
+{
+ 308:	1f 92       	push	r1
+ 30a:	0f 92       	push	r0
+ 30c:	0f b6       	in	r0, 0x3f	; 63
+ 30e:	0f 92       	push	r0
+ 310:	11 24       	eor	r1, r1
+ 312:	08 b6       	in	r0, 0x38	; 56
+ 314:	0f 92       	push	r0
+ 316:	18 be       	out	0x38, r1	; 56
+ 318:	09 b6       	in	r0, 0x39	; 57
+ 31a:	0f 92       	push	r0
+ 31c:	19 be       	out	0x39, r1	; 57
+ 31e:	0b b6       	in	r0, 0x3b	; 59
+ 320:	0f 92       	push	r0
+ 322:	1b be       	out	0x3b, r1	; 59
+ 324:	cf 92       	push	r12
+ 326:	df 92       	push	r13
+ 328:	ef 92       	push	r14
+ 32a:	ff 92       	push	r15
+ 32c:	0f 93       	push	r16
+ 32e:	1f 93       	push	r17
+ 330:	2f 93       	push	r18
+ 332:	3f 93       	push	r19
+ 334:	4f 93       	push	r20
+ 336:	5f 93       	push	r21
+ 338:	6f 93       	push	r22
+ 33a:	7f 93       	push	r23
+ 33c:	8f 93       	push	r24
+ 33e:	9f 93       	push	r25
+ 340:	af 93       	push	r26
+ 342:	bf 93       	push	r27
+ 344:	ef 93       	push	r30
+ 346:	ff 93       	push	r31
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+ 348:	40 91 0c 20 	lds	r20, 0x200C
+ 34c:	50 91 0d 20 	lds	r21, 0x200D
+ 350:	80 91 0e 20 	lds	r24, 0x200E
+ 354:	90 91 0f 20 	lds	r25, 0x200F
+ 358:	48 17       	cp	r20, r24
+ 35a:	59 07       	cpc	r21, r25
+ 35c:	f0 f1       	brcs	.+124    	; 0x3da <__vector_11+0xd2>
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+ 35e:	81 e0       	ldi	r24, 0x01	; 1
+ 360:	e0 e0       	ldi	r30, 0x00	; 0
+ 362:	f4 e0       	ldi	r31, 0x04	; 4
+ 364:	82 83       	std	Z+2, r24	; 0x02
+		if (rtc_data.callback) {
+ 366:	e0 91 12 20 	lds	r30, 0x2012
+ 36a:	f0 91 13 20 	lds	r31, 0x2013
+ 36e:	30 97       	sbiw	r30, 0x00	; 0
+ 370:	a1 f1       	breq	.+104    	; 0x3da <__vector_11+0xd2>
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+					| RTC.CNT;
+ 372:	a0 e0       	ldi	r26, 0x00	; 0
+ 374:	b4 e0       	ldi	r27, 0x04	; 4
+ 376:	18 96       	adiw	r26, 0x08	; 8
+ 378:	8d 91       	ld	r24, X+
+ 37a:	9c 91       	ld	r25, X
+ 37c:	19 97       	sbiw	r26, 0x09	; 9
+ISR(RTC_COMP_vect)
+{
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+		if (rtc_data.callback) {
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+ 37e:	60 e0       	ldi	r22, 0x00	; 0
+ 380:	70 e0       	ldi	r23, 0x00	; 0
+ 382:	ba 01       	movw	r22, r20
+ 384:	55 27       	eor	r21, r21
+ 386:	44 27       	eor	r20, r20
+					| RTC.CNT;
+ 388:	a0 e0       	ldi	r26, 0x00	; 0
+ 38a:	b0 e0       	ldi	r27, 0x00	; 0
+ISR(RTC_COMP_vect)
+{
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+		if (rtc_data.callback) {
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+ 38c:	8a 01       	movw	r16, r20
+ 38e:	9b 01       	movw	r18, r22
+ 390:	08 2b       	or	r16, r24
+ 392:	19 2b       	or	r17, r25
+ 394:	2a 2b       	or	r18, r26
+ 396:	3b 2b       	or	r19, r27
+ 398:	c9 01       	movw	r24, r18
+ 39a:	b8 01       	movw	r22, r16
+					| RTC.CNT;
+			uint32_t alarm = ((uint32_t)rtc_data.alarm_high << 16)
+ 39c:	00 91 0e 20 	lds	r16, 0x200E
+ 3a0:	10 91 0f 20 	lds	r17, 0x200F
+ 3a4:	20 e0       	ldi	r18, 0x00	; 0
+ 3a6:	30 e0       	ldi	r19, 0x00	; 0
+ 3a8:	98 01       	movw	r18, r16
+ 3aa:	11 27       	eor	r17, r17
+ 3ac:	00 27       	eor	r16, r16
+					| rtc_data.alarm_low;
+ 3ae:	c0 90 10 20 	lds	r12, 0x2010
+ 3b2:	d0 90 11 20 	lds	r13, 0x2011
+ 3b6:	e1 2c       	mov	r14, r1
+ 3b8:	f1 2c       	mov	r15, r1
+	if (rtc_data.counter_high >= rtc_data.alarm_high) {
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+		if (rtc_data.callback) {
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+					| RTC.CNT;
+			uint32_t alarm = ((uint32_t)rtc_data.alarm_high << 16)
+ 3ba:	0c 29       	or	r16, r12
+ 3bc:	1d 29       	or	r17, r13
+ 3be:	2e 29       	or	r18, r14
+ 3c0:	3f 29       	or	r19, r15
+					| rtc_data.alarm_low;
+			/* Workaround for errata. Count might not be updated
+			 * when waking up from sleep, so in this case use alarm
+			 * time plus one.
+			 */
+			if (alarm >= count)
+ 3c2:	06 17       	cp	r16, r22
+ 3c4:	17 07       	cpc	r17, r23
+ 3c6:	28 07       	cpc	r18, r24
+ 3c8:	39 07       	cpc	r19, r25
+ 3ca:	30 f0       	brcs	.+12     	; 0x3d8 <__vector_11+0xd0>
+				count = alarm + 1;
+ 3cc:	c9 01       	movw	r24, r18
+ 3ce:	b8 01       	movw	r22, r16
+ 3d0:	6f 5f       	subi	r22, 0xFF	; 255
+ 3d2:	7f 4f       	sbci	r23, 0xFF	; 255
+ 3d4:	8f 4f       	sbci	r24, 0xFF	; 255
+ 3d6:	9f 4f       	sbci	r25, 0xFF	; 255
+			rtc_data.callback(count);
+ 3d8:	19 95       	eicall
+			 * is time.
+			 * 
+			 */
+		}
+	}
+}
+ 3da:	ff 91       	pop	r31
+ 3dc:	ef 91       	pop	r30
+ 3de:	bf 91       	pop	r27
+ 3e0:	af 91       	pop	r26
+ 3e2:	9f 91       	pop	r25
+ 3e4:	8f 91       	pop	r24
+ 3e6:	7f 91       	pop	r23
+ 3e8:	6f 91       	pop	r22
+ 3ea:	5f 91       	pop	r21
+ 3ec:	4f 91       	pop	r20
+ 3ee:	3f 91       	pop	r19
+ 3f0:	2f 91       	pop	r18
+ 3f2:	1f 91       	pop	r17
+ 3f4:	0f 91       	pop	r16
+ 3f6:	ff 90       	pop	r15
+ 3f8:	ef 90       	pop	r14
+ 3fa:	df 90       	pop	r13
+ 3fc:	cf 90       	pop	r12
+ 3fe:	0f 90       	pop	r0
+ 400:	0b be       	out	0x3b, r0	; 59
+ 402:	0f 90       	pop	r0
+ 404:	09 be       	out	0x39, r0	; 57
+ 406:	0f 90       	pop	r0
+ 408:	08 be       	out	0x38, r0	; 56
+ 40a:	0f 90       	pop	r0
+ 40c:	0f be       	out	0x3f, r0	; 63
+ 40e:	0f 90       	pop	r0
+ 410:	1f 90       	pop	r1
+ 412:	18 95       	reti
+
+00000414 <init_power_seq>:
+ */ 
+
+#include "sequence.h"
+
+
+void init_power_seq() {
+ 414:	cf 93       	push	r28
+ 416:	df 93       	push	r29
+ * \param flags Bitmask of flags specifying additional configuration
+ * parameters.
+ */
+static inline void ioport_configure_pin(port_pin_t pin, port_pin_flags_t flags)
+{
+	ioport_configure_port_pin(arch_ioport_pin_to_base(pin),
+ 418:	43 e0       	ldi	r20, 0x03	; 3
+ 41a:	50 e0       	ldi	r21, 0x00	; 0
+ 41c:	60 e8       	ldi	r22, 0x80	; 128
+ 41e:	80 e4       	ldi	r24, 0x40	; 64
+ 420:	96 e0       	ldi	r25, 0x06	; 6
+ 422:	52 d1       	rcall	.+676    	; 0x6c8 <ioport_configure_port_pin>
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+	} else {
+		base->OUTCLR = arch_ioport_pin_to_mask(pin);
+ 424:	c0 e4       	ldi	r28, 0x40	; 64
+ 426:	d6 e0       	ldi	r29, 0x06	; 6
+ 428:	80 e8       	ldi	r24, 0x80	; 128
+ 42a:	8e 83       	std	Y+6, r24	; 0x06
+ 42c:	43 e0       	ldi	r20, 0x03	; 3
+ 42e:	50 e0       	ldi	r21, 0x00	; 0
+ 430:	60 e2       	ldi	r22, 0x20	; 32
+ 432:	80 e4       	ldi	r24, 0x40	; 64
+ 434:	96 e0       	ldi	r25, 0x06	; 6
+ 436:	48 d1       	rcall	.+656    	; 0x6c8 <ioport_configure_port_pin>
+ 438:	80 e2       	ldi	r24, 0x20	; 32
+ 43a:	8e 83       	std	Y+6, r24	; 0x06
+ 43c:	43 e0       	ldi	r20, 0x03	; 3
+ 43e:	50 e0       	ldi	r21, 0x00	; 0
+ 440:	62 e0       	ldi	r22, 0x02	; 2
+ 442:	80 e4       	ldi	r24, 0x40	; 64
+ 444:	96 e0       	ldi	r25, 0x06	; 6
+ 446:	40 d1       	rcall	.+640    	; 0x6c8 <ioport_configure_port_pin>
+ 448:	82 e0       	ldi	r24, 0x02	; 2
+ 44a:	8e 83       	std	Y+6, r24	; 0x06
+ 44c:	43 e0       	ldi	r20, 0x03	; 3
+ 44e:	50 e0       	ldi	r21, 0x00	; 0
+ 450:	61 e0       	ldi	r22, 0x01	; 1
+ 452:	80 e4       	ldi	r24, 0x40	; 64
+ 454:	96 e0       	ldi	r25, 0x06	; 6
+ 456:	38 d1       	rcall	.+624    	; 0x6c8 <ioport_configure_port_pin>
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+ 458:	81 e0       	ldi	r24, 0x01	; 1
+ 45a:	8d 83       	std	Y+5, r24	; 0x05
+	ioport_configure_pin(SR_LATCH, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	gpio_set_pin_low(SR_LATCH);
+	ioport_configure_pin(SR_CLEAR, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	gpio_set_pin_high(SR_CLEAR);
+	
+}
+ 45c:	df 91       	pop	r29
+ 45e:	cf 91       	pop	r28
+ 460:	08 95       	ret
+
+00000462 <alarm>:
+		earliest->prev->next = earliest->next;
+		earliest->next->prev = earliest->prev;
+	}
+
+	return earliest;
+}
+ 462:	e0 ec       	ldi	r30, 0xC0	; 192
+ 464:	f7 e0       	ldi	r31, 0x07	; 7
+ 466:	80 85       	ldd	r24, Z+8	; 0x08
+ 468:	83 fd       	sbrc	r24, 3
+ 46a:	03 c0       	rjmp	.+6      	; 0x472 <alarm+0x10>
+ 46c:	88 e0       	ldi	r24, 0x08	; 8
+ 46e:	85 83       	std	Z+5, r24	; 0x05
+ 470:	04 c0       	rjmp	.+8      	; 0x47a <alarm+0x18>
+ 472:	88 e0       	ldi	r24, 0x08	; 8
+ 474:	e0 ec       	ldi	r30, 0xC0	; 192
+ 476:	f7 e0       	ldi	r31, 0x07	; 7
+ 478:	86 83       	std	Z+6, r24	; 0x06
+ 47a:	84 e4       	ldi	r24, 0x44	; 68
+ 47c:	92 e0       	ldi	r25, 0x02	; 2
+ 47e:	26 df       	rcall	.-436    	; 0x2cc <rtc_set_callback>
+ 480:	e2 de       	rcall	.-572    	; 0x246 <rtc_get_time>
+ 482:	01 96       	adiw	r24, 0x01	; 1
+ 484:	0b cf       	rjmp	.-490    	; 0x29c <rtc_set_alarm>
+ 486:	08 95       	ret
+
+00000488 <alarm2>:
+ 488:	2a e0       	ldi	r18, 0x0A	; 10
+ 48a:	30 e0       	ldi	r19, 0x00	; 0
+ 48c:	e0 ec       	ldi	r30, 0xC0	; 192
+ 48e:	f7 e0       	ldi	r31, 0x07	; 7
+ 490:	48 e0       	ldi	r20, 0x08	; 8
+ 492:	80 85       	ldd	r24, Z+8	; 0x08
+ 494:	83 fd       	sbrc	r24, 3
+ 496:	02 c0       	rjmp	.+4      	; 0x49c <alarm2+0x14>
+ 498:	45 83       	std	Z+5, r20	; 0x05
+ 49a:	01 c0       	rjmp	.+2      	; 0x49e <alarm2+0x16>
+ 49c:	46 83       	std	Z+6, r20	; 0x06
+ 49e:	80 e0       	ldi	r24, 0x00	; 0
+ 4a0:	90 e0       	ldi	r25, 0x00	; 0
+ 4a2:	01 96       	adiw	r24, 0x01	; 1
+ 4a4:	8a 31       	cpi	r24, 0x1A	; 26
+ 4a6:	51 e4       	ldi	r21, 0x41	; 65
+ 4a8:	95 07       	cpc	r25, r21
+ 4aa:	d9 f7       	brne	.-10     	; 0x4a2 <alarm2+0x1a>
+ 4ac:	21 50       	subi	r18, 0x01	; 1
+ 4ae:	31 09       	sbc	r19, r1
+ 4b0:	21 15       	cp	r18, r1
+ 4b2:	31 05       	cpc	r19, r1
+ 4b4:	71 f7       	brne	.-36     	; 0x492 <alarm2+0xa>
+ 4b6:	81 e3       	ldi	r24, 0x31	; 49
+ 4b8:	92 e0       	ldi	r25, 0x02	; 2
+ 4ba:	08 df       	rcall	.-496    	; 0x2cc <rtc_set_callback>
+ 4bc:	c4 de       	rcall	.-632    	; 0x246 <rtc_get_time>
+ 4be:	70 58       	subi	r23, 0x80	; 128
+ 4c0:	8f 4f       	sbci	r24, 0xFF	; 255
+ 4c2:	9f 4f       	sbci	r25, 0xFF	; 255
+ 4c4:	eb ce       	rjmp	.-554    	; 0x29c <rtc_set_alarm>
+ 4c6:	08 95       	ret
+
+000004c8 <init_vrtc>:
+ 4c8:	87 e0       	ldi	r24, 0x07	; 7
+ 4ca:	e0 ea       	ldi	r30, 0xA0	; 160
+ 4cc:	f0 e0       	ldi	r31, 0x00	; 0
+ 4ce:	82 83       	std	Z+2, r24	; 0x02
+ 4d0:	ce d0       	rcall	.+412    	; 0x66e <sysclk_init>
+ 4d2:	10 92 06 20 	sts	0x2006, r1
+ 4d6:	10 92 07 20 	sts	0x2007, r1
+ 4da:	10 92 08 20 	sts	0x2008, r1
+ 4de:	10 92 09 20 	sts	0x2009, r1
+ 4e2:	10 92 0a 20 	sts	0x200A, r1
+ 4e6:	81 e0       	ldi	r24, 0x01	; 1
+ 4e8:	80 93 0b 20 	sts	0x200B, r24
+ 4ec:	f4 de       	rcall	.-536    	; 0x2d6 <rtc_init>
+ 4ee:	78 94       	sei
+ 4f0:	10 92 14 20 	sts	0x2014, r1
+ 4f4:	10 92 15 20 	sts	0x2015, r1
+ 4f8:	81 e3       	ldi	r24, 0x31	; 49
+ 4fa:	92 e0       	ldi	r25, 0x02	; 2
+ 4fc:	e7 de       	rcall	.-562    	; 0x2cc <rtc_set_callback>
+ 4fe:	a3 de       	rcall	.-698    	; 0x246 <rtc_get_time>
+ 500:	70 58       	subi	r23, 0x80	; 128
+ 502:	8f 4f       	sbci	r24, 0xFF	; 255
+ 504:	9f 4f       	sbci	r25, 0xFF	; 255
+ 506:	ca ce       	rjmp	.-620    	; 0x29c <rtc_set_alarm>
+ 508:	08 95       	ret
+
+0000050a <__vector_10>:
+
+
+
+//Redefined from rtc.c
+ISR(RTC_OVF_vect)
+{
+ 50a:	1f 92       	push	r1
+ 50c:	0f 92       	push	r0
+ 50e:	0f b6       	in	r0, 0x3f	; 63
+ 510:	0f 92       	push	r0
+ 512:	11 24       	eor	r1, r1
+ 514:	08 b6       	in	r0, 0x38	; 56
+ 516:	0f 92       	push	r0
+ 518:	18 be       	out	0x38, r1	; 56
+ 51a:	0b b6       	in	r0, 0x3b	; 59
+ 51c:	0f 92       	push	r0
+ 51e:	1b be       	out	0x3b, r1	; 59
+ 520:	8f 93       	push	r24
+ 522:	9f 93       	push	r25
+ 524:	ef 93       	push	r30
+ 526:	ff 93       	push	r31
+
+__always_inline static bool arch_ioport_get_pin_level(ioport_pin_t pin)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	return base->IN & arch_ioport_pin_to_mask(pin);
+ 528:	e0 ec       	ldi	r30, 0xC0	; 192
+ 52a:	f7 e0       	ldi	r31, 0x07	; 7
+ 52c:	80 85       	ldd	r24, Z+8	; 0x08
+__always_inline static void arch_ioport_set_pin_level(ioport_pin_t pin,
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+ 52e:	83 fd       	sbrc	r24, 3
+ 530:	03 c0       	rjmp	.+6      	; 0x538 <__vector_10+0x2e>
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+ 532:	88 e0       	ldi	r24, 0x08	; 8
+ 534:	85 83       	std	Z+5, r24	; 0x05
+ 536:	04 c0       	rjmp	.+8      	; 0x540 <__vector_10+0x36>
+	} else {
+		base->OUTCLR = arch_ioport_pin_to_mask(pin);
+ 538:	88 e0       	ldi	r24, 0x08	; 8
+ 53a:	e0 ec       	ldi	r30, 0xC0	; 192
+ 53c:	f7 e0       	ldi	r31, 0x07	; 7
+ 53e:	86 83       	std	Z+6, r24	; 0x06
+	ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+	rtc_data.counter_high++;
+ 540:	ec e0       	ldi	r30, 0x0C	; 12
+ 542:	f0 e2       	ldi	r31, 0x20	; 32
+ 544:	80 81       	ld	r24, Z
+ 546:	91 81       	ldd	r25, Z+1	; 0x01
+ 548:	01 96       	adiw	r24, 0x01	; 1
+ 54a:	80 83       	st	Z, r24
+ 54c:	91 83       	std	Z+1, r25	; 0x01
+	soft_counter++;
+ 54e:	80 91 14 20 	lds	r24, 0x2014
+ 552:	90 91 15 20 	lds	r25, 0x2015
+ 556:	01 96       	adiw	r24, 0x01	; 1
+ 558:	80 93 14 20 	sts	0x2014, r24
+ 55c:	90 93 15 20 	sts	0x2015, r25
+	if (rtc_data.counter_high++ == 0){
+		//ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+		soft_counter++;
+	}
+	*/
+}
+ 560:	ff 91       	pop	r31
+ 562:	ef 91       	pop	r30
+ 564:	9f 91       	pop	r25
+ 566:	8f 91       	pop	r24
+ 568:	0f 90       	pop	r0
+ 56a:	0b be       	out	0x3b, r0	; 59
+ 56c:	0f 90       	pop	r0
+ 56e:	08 be       	out	0x38, r0	; 56
+ 570:	0f 90       	pop	r0
+ 572:	0f be       	out	0x3f, r0	; 63
+ 574:	0f 90       	pop	r0
+ 576:	1f 90       	pop	r1
+ 578:	18 95       	reti
+
+0000057a <ssd1306_write_command>:
+ * data write function is called based on the selected interface.
+ *
+ * \param command the command to write
+ */
+static void ssd1306_write_command(uint8_t command)
+{
+ 57a:	0f 93       	push	r16
+ 57c:	1f 93       	push	r17
+ 57e:	cf 93       	push	r28
+ 580:	df 93       	push	r29
+ 582:	1f 92       	push	r1
+ 584:	cd b7       	in	r28, 0x3d	; 61
+ 586:	de b7       	in	r29, 0x3e	; 62
+ 588:	08 2f       	mov	r16, r24
+	usart_spi_select_device(SSD1306_USART_SPI, &device);
+	ssd1306_sel_cmd();
+	usart_spi_transmit(SSD1306_USART_SPI, command);
+	usart_spi_deselect_device(SSD1306_USART_SPI, &device);
+#elif defined(SSD1306_SPI_INTERFACE)
+	struct spi_device device = {.id = SSD1306_CS_PIN};
+ 58a:	11 e0       	ldi	r17, 0x01	; 1
+ 58c:	19 83       	std	Y+1, r17	; 0x01
+	spi_select_device(SSD1306_SPI, &device);
+ 58e:	be 01       	movw	r22, r28
+ 590:	6f 5f       	subi	r22, 0xFF	; 255
+ 592:	7f 4f       	sbci	r23, 0xFF	; 255
+ 594:	80 e0       	ldi	r24, 0x00	; 0
+ 596:	90 e0       	ldi	r25, 0x00	; 0
+ 598:	0a d1       	rcall	.+532    	; 0x7ae <spi_select_device>
+ 59a:	e0 e0       	ldi	r30, 0x00	; 0
+ 59c:	f6 e0       	ldi	r31, 0x06	; 6
+ 59e:	16 83       	std	Z+6, r17	; 0x06
+ * \param data The data byte to be loaded
+ *
+ */
+static inline void spi_put(SPI_t *spi, uint8_t data)
+{
+	spi->DATA = data;
+ 5a0:	03 b9       	out	0x03, r16	; 3
+	ssd1306_sel_cmd();
+	spi_write_single(SSD1306_SPI, command);
+	delay_us(SSD1306_LATENCY); // At least 3us
+	spi_deselect_device(SSD1306_SPI, &device);
+ 5a2:	be 01       	movw	r22, r28
+ 5a4:	6f 5f       	subi	r22, 0xFF	; 255
+ 5a6:	7f 4f       	sbci	r23, 0xFF	; 255
+ 5a8:	80 e0       	ldi	r24, 0x00	; 0
+ 5aa:	90 e0       	ldi	r25, 0x00	; 0
+ 5ac:	16 d1       	rcall	.+556    	; 0x7da <spi_deselect_device>
+#endif
+}
+ 5ae:	0f 90       	pop	r0
+ 5b0:	df 91       	pop	r29
+ 5b2:	cf 91       	pop	r28
+ 5b4:	1f 91       	pop	r17
+ 5b6:	0f 91       	pop	r16
+ 5b8:	08 95       	ret
+
+000005ba <ssd1306_init>:
+ * Call this function to initialize the hardware interface and the OLED
+ * controller. When initialization is done the display is turned on and ready
+ * to receive data.
+ */
+void ssd1306_init(void)
+{
+ 5ba:	cf 92       	push	r12
+ 5bc:	df 92       	push	r13
+ 5be:	ef 92       	push	r14
+ 5c0:	ff 92       	push	r15
+ 5c2:	0f 93       	push	r16
+ 5c4:	1f 93       	push	r17
+ 5c6:	cf 93       	push	r28
+ 5c8:	df 93       	push	r29
+ 5ca:	1f 92       	push	r1
+ 5cc:	cd b7       	in	r28, 0x3d	; 61
+ 5ce:	de b7       	in	r29, 0x3e	; 62
+ 5d0:	84 e0       	ldi	r24, 0x04	; 4
+ 5d2:	e0 e0       	ldi	r30, 0x00	; 0
+ 5d4:	f6 e0       	ldi	r31, 0x06	; 6
+ 5d6:	86 83       	std	Z+6, r24	; 0x06
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+ 5d8:	85 83       	std	Z+5, r24	; 0x05
+	};
+	usart_spi_init(SSD1306_USART_SPI);
+	usart_spi_setup_device(SSD1306_USART_SPI, &device, spi_flags,
+			SSD1306_CLOCK_SPEED, spi_select_id);
+#elif defined(SSD1306_SPI_INTERFACE)
+	struct spi_device device = {
+ 5da:	81 e0       	ldi	r24, 0x01	; 1
+ 5dc:	89 83       	std	Y+1, r24	; 0x01
+		.id = SSD1306_CS_PIN,
+	};
+	spi_master_init(SSD1306_SPI);
+ 5de:	80 e0       	ldi	r24, 0x00	; 0
+ 5e0:	90 e0       	ldi	r25, 0x00	; 0
+ 5e2:	9a d0       	rcall	.+308    	; 0x718 <spi_master_init>
+	spi_master_setup_device(SSD1306_SPI, &device, spi_flags,
+ 5e4:	c1 2c       	mov	r12, r1
+ 5e6:	d1 2c       	mov	r13, r1
+ 5e8:	76 01       	movw	r14, r12
+ 5ea:	00 e0       	ldi	r16, 0x00	; 0
+ 5ec:	1b e1       	ldi	r17, 0x1B	; 27
+ 5ee:	27 eb       	ldi	r18, 0xB7	; 183
+ 5f0:	30 e0       	ldi	r19, 0x00	; 0
+ 5f2:	40 e0       	ldi	r20, 0x00	; 0
+ 5f4:	be 01       	movw	r22, r28
+ 5f6:	6f 5f       	subi	r22, 0xFF	; 255
+ 5f8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 5fa:	80 e0       	ldi	r24, 0x00	; 0
+ 5fc:	90 e0       	ldi	r25, 0x00	; 0
+ 5fe:	b8 d0       	rcall	.+368    	; 0x770 <spi_master_setup_device>
+ *
+ * \param spi Base address of the SPI instance.
+ */
+static inline void spi_enable(SPI_t *spi)
+{
+	spi->CTRL |= SPI_ENABLE_bm;
+ 600:	06 9a       	sbi	0x00, 6	; 0
+
+	// Initialize the interface
+	ssd1306_interface_init();
+
+	// 1/32 Duty (0x0F~0x3F)
+	ssd1306_write_command(SSD1306_CMD_SET_MULTIPLEX_RATIO);
+ 602:	88 ea       	ldi	r24, 0xA8	; 168
+ 604:	ba df       	rcall	.-140    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x1F);
+ 606:	8f e1       	ldi	r24, 0x1F	; 31
+ 608:	b8 df       	rcall	.-144    	; 0x57a <ssd1306_write_command>
+
+	// Shift Mapping RAM Counter (0x00~0x3F)
+	ssd1306_write_command(SSD1306_CMD_SET_DISPLAY_OFFSET);
+ 60a:	83 ed       	ldi	r24, 0xD3	; 211
+ 60c:	b6 df       	rcall	.-148    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x00);
+ 60e:	80 e0       	ldi	r24, 0x00	; 0
+ 610:	b4 df       	rcall	.-152    	; 0x57a <ssd1306_write_command>
+
+	// Set Mapping RAM Display Start Line (0x00~0x3F)
+	ssd1306_write_command(SSD1306_CMD_SET_START_LINE(0x00));
+ 612:	80 e4       	ldi	r24, 0x40	; 64
+ 614:	b2 df       	rcall	.-156    	; 0x57a <ssd1306_write_command>
+
+	// Set Column Address 0 Mapped to SEG0
+	ssd1306_write_command(SSD1306_CMD_SET_SEGMENT_RE_MAP_COL127_SEG0);
+ 616:	81 ea       	ldi	r24, 0xA1	; 161
+ 618:	b0 df       	rcall	.-160    	; 0x57a <ssd1306_write_command>
+
+	// Set COM/Row Scan Scan from COM63 to 0
+	ssd1306_write_command(SSD1306_CMD_SET_COM_OUTPUT_SCAN_DOWN);
+ 61a:	88 ec       	ldi	r24, 0xC8	; 200
+ 61c:	ae df       	rcall	.-164    	; 0x57a <ssd1306_write_command>
+
+	// Set COM Pins hardware configuration
+	ssd1306_write_command(SSD1306_CMD_SET_COM_PINS);
+ 61e:	8a ed       	ldi	r24, 0xDA	; 218
+ 620:	ac df       	rcall	.-168    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x02);
+ 622:	82 e0       	ldi	r24, 0x02	; 2
+ 624:	aa df       	rcall	.-172    	; 0x57a <ssd1306_write_command>
+ *
+ * \retval contrast the contrast value written to the OLED controller
+ */
+static inline uint8_t ssd1306_set_contrast(uint8_t contrast)
+{
+	ssd1306_write_command(SSD1306_CMD_SET_CONTRAST_CONTROL_FOR_BANK0);
+ 626:	81 e8       	ldi	r24, 0x81	; 129
+ 628:	a8 df       	rcall	.-176    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(contrast);
+ 62a:	8f e8       	ldi	r24, 0x8F	; 143
+ 62c:	a6 df       	rcall	.-180    	; 0x57a <ssd1306_write_command>
+
+	ssd1306_set_contrast(0x8F);
+
+	// Disable Entire display On
+	ssd1306_write_command(SSD1306_CMD_ENTIRE_DISPLAY_AND_GDDRAM_ON);
+ 62e:	84 ea       	ldi	r24, 0xA4	; 164
+ 630:	a4 df       	rcall	.-184    	; 0x57a <ssd1306_write_command>
+ * This function will disable invert on all pixels on the OLED
+ *
+ */
+static inline void ssd1306_display_invert_disable(void)
+{
+	ssd1306_write_command(SSD1306_CMD_SET_NORMAL_DISPLAY);
+ 632:	86 ea       	ldi	r24, 0xA6	; 166
+ 634:	a2 df       	rcall	.-188    	; 0x57a <ssd1306_write_command>
+
+	ssd1306_display_invert_disable();
+
+	// Set Display Clock Divide Ratio / Oscillator Frequency (Default => 0x80)
+	ssd1306_write_command(SSD1306_CMD_SET_DISPLAY_CLOCK_DIVIDE_RATIO);
+ 636:	85 ed       	ldi	r24, 0xD5	; 213
+ 638:	a0 df       	rcall	.-192    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x80);
+ 63a:	80 e8       	ldi	r24, 0x80	; 128
+ 63c:	9e df       	rcall	.-196    	; 0x57a <ssd1306_write_command>
+
+	// Enable charge pump regulator
+	ssd1306_write_command(SSD1306_CMD_SET_CHARGE_PUMP_SETTING);
+ 63e:	8d e8       	ldi	r24, 0x8D	; 141
+ 640:	9c df       	rcall	.-200    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x14);
+ 642:	84 e1       	ldi	r24, 0x14	; 20
+ 644:	9a df       	rcall	.-204    	; 0x57a <ssd1306_write_command>
+
+	// Set VCOMH Deselect Level
+	ssd1306_write_command(SSD1306_CMD_SET_VCOMH_DESELECT_LEVEL);
+ 646:	8b ed       	ldi	r24, 0xDB	; 219
+ 648:	98 df       	rcall	.-208    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0x40); // Default => 0x20 (0.77*VCC)
+ 64a:	80 e4       	ldi	r24, 0x40	; 64
+ 64c:	96 df       	rcall	.-212    	; 0x57a <ssd1306_write_command>
+
+	// Set Pre-Charge as 15 Clocks & Discharge as 1 Clock
+	ssd1306_write_command(SSD1306_CMD_SET_PRE_CHARGE_PERIOD);
+ 64e:	89 ed       	ldi	r24, 0xD9	; 217
+ 650:	94 df       	rcall	.-216    	; 0x57a <ssd1306_write_command>
+	ssd1306_write_command(0xF1);
+ 652:	81 ef       	ldi	r24, 0xF1	; 241
+ 654:	92 df       	rcall	.-220    	; 0x57a <ssd1306_write_command>
+ *
+ * This function will turn on the OLED.
+ */
+static inline void ssd1306_display_on(void)
+{
+	ssd1306_write_command(SSD1306_CMD_SET_DISPLAY_ON);
+ 656:	8f ea       	ldi	r24, 0xAF	; 175
+ 658:	90 df       	rcall	.-224    	; 0x57a <ssd1306_write_command>
+
+	ssd1306_display_on();
+}
+ 65a:	0f 90       	pop	r0
+ 65c:	df 91       	pop	r29
+ 65e:	cf 91       	pop	r28
+ 660:	1f 91       	pop	r17
+ 662:	0f 91       	pop	r16
+ 664:	ff 90       	pop	r15
+ 666:	ef 90       	pop	r14
+ 668:	df 90       	pop	r13
+ 66a:	cf 90       	pop	r12
+ 66c:	08 95       	ret
+
+0000066e <sysclk_init>:
+#endif
+	bool need_rc2mhz = false;
+
+	/* Turn off all peripheral clocks that can be turned off. */
+	for (i = 0; i <= SYSCLK_PORT_F; i++) {
+		*(reg++) = 0xff;
+ 66e:	8f ef       	ldi	r24, 0xFF	; 255
+ 670:	80 93 70 00 	sts	0x0070, r24
+ 674:	80 93 71 00 	sts	0x0071, r24
+ 678:	80 93 72 00 	sts	0x0072, r24
+ 67c:	80 93 73 00 	sts	0x0073, r24
+ 680:	80 93 74 00 	sts	0x0074, r24
+ 684:	80 93 75 00 	sts	0x0075, r24
+ 688:	80 93 76 00 	sts	0x0076, r24
+
+#ifndef CONFIG_XOSC_32KHZ_LPM
+#  if (XMEGA_E && (BOARD_XOSC_TYPE == XOSC_TYPE_EXTERNAL) && defined(CONFIG_XOSC_EXTERNAL_PC4))
+	OSC.XOSCCTRL = OSC_XOSCSEL4_bm;
+#  else
+	OSC.XOSCCTRL = BOARD_XOSC_TYPE | (CONFIG_XOSC_STARTUP << 2) |
+ 68c:	82 e0       	ldi	r24, 0x02	; 2
+ 68e:	e0 e5       	ldi	r30, 0x50	; 80
+ 690:	f0 e0       	ldi	r31, 0x00	; 0
+ 692:	82 83       	std	Z+2, r24	; 0x02
+
+typedef uint8_t irqflags_t;
+
+static inline irqflags_t cpu_irq_save(void)
+{
+	irqflags_t flags = SREG;
+ 694:	8f b7       	in	r24, 0x3f	; 63
+	cpu_irq_disable();
+ 696:	f8 94       	cli
+	OSC.XOSCCTRL = BOARD_XOSC_TYPE | (CONFIG_XOSC_STARTUP << 2) |
+			CONFIG_XOSC_RANGE | OSC_X32KLPM_bm;
+#endif /* CONFIG_XOSC_32KHZ_LPM */
+
+	flags = cpu_irq_save();
+	OSC.CTRL |= id;
+ 698:	90 81       	ld	r25, Z
+ 69a:	98 60       	ori	r25, 0x08	; 8
+ 69c:	90 83       	st	Z, r25
+}
+
+static inline void cpu_irq_restore(irqflags_t flags)
+{
+	barrier();
+	SREG = flags;
+ 69e:	8f bf       	out	0x3f, r24	; 63
+
+static inline bool osc_is_ready(uint8_t id)
+{
+	Assert(id != OSC_ID_USBSOF);
+
+	return OSC.STATUS & id;
+ 6a0:	81 81       	ldd	r24, Z+1	; 0x01
+ *
+ * \param id A number identifying the oscillator to wait for.
+ */
+static inline void osc_wait_ready(uint8_t id)
+{
+	while (!osc_is_ready(id)) {
+ 6a2:	83 ff       	sbrs	r24, 3
+ 6a4:	fd cf       	rjmp	.-6      	; 0x6a0 <sysclk_init+0x32>
+		osc_enable(OSC_ID_XOSC);
+		osc_wait_ready(OSC_ID_XOSC);
+		break;
+	}
+
+	CLK.RTCCTRL = id | CLK_RTCEN_bm;
+ 6a6:	8b e0       	ldi	r24, 0x0B	; 11
+ 6a8:	e0 e4       	ldi	r30, 0x40	; 64
+ 6aa:	f0 e0       	ldi	r31, 0x00	; 0
+ 6ac:	83 83       	std	Z+3, r24	; 0x03
+ 6ae:	08 95       	ret
+
+000006b0 <sysclk_enable_module>:
+
+typedef uint8_t irqflags_t;
+
+static inline irqflags_t cpu_irq_save(void)
+{
+	irqflags_t flags = SREG;
+ 6b0:	9f b7       	in	r25, 0x3f	; 63
+	cpu_irq_disable();
+ 6b2:	f8 94       	cli
+
+void sysclk_enable_module(enum sysclk_port_id port, uint8_t id)
+{
+	irqflags_t flags = cpu_irq_save();
+
+	*((uint8_t *)&PR.PRGEN + port) &= ~id;
+ 6b4:	e8 2f       	mov	r30, r24
+ 6b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 6b8:	e0 59       	subi	r30, 0x90	; 144
+ 6ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6bc:	60 95       	com	r22
+ 6be:	80 81       	ld	r24, Z
+ 6c0:	68 23       	and	r22, r24
+ 6c2:	60 83       	st	Z, r22
+}
+
+static inline void cpu_irq_restore(irqflags_t flags)
+{
+	barrier();
+	SREG = flags;
+ 6c4:	9f bf       	out	0x3f, r25	; 63
+ 6c6:	08 95       	ret
+
+000006c8 <ioport_configure_port_pin>:
+#include "ioport_compat.h"
+
+#if defined(IOPORT_XMEGA_COMPAT)
+void ioport_configure_port_pin(void *port, pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+ 6c8:	cf 93       	push	r28
+ 6ca:	df 93       	push	r29
+ 6cc:	fc 01       	movw	r30, r24
+ 6ce:	70 96       	adiw	r30, 0x10	; 16
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+		if (pin_mask & (1 << pin)) {
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+ 6d0:	20 e0       	ldi	r18, 0x00	; 0
+ 6d2:	30 e0       	ldi	r19, 0x00	; 0
+		port_pin_flags_t flags)
+{
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+		if (pin_mask & (1 << pin)) {
+ 6d4:	c6 2f       	mov	r28, r22
+ 6d6:	d0 e0       	ldi	r29, 0x00	; 0
+ 6d8:	de 01       	movw	r26, r28
+ 6da:	02 2e       	mov	r0, r18
+ 6dc:	02 c0       	rjmp	.+4      	; 0x6e2 <ioport_configure_port_pin+0x1a>
+ 6de:	b5 95       	asr	r27
+ 6e0:	a7 95       	ror	r26
+ 6e2:	0a 94       	dec	r0
+ 6e4:	e2 f7       	brpl	.-8      	; 0x6de <ioport_configure_port_pin+0x16>
+ 6e6:	a0 fd       	sbrc	r26, 0
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+ 6e8:	50 83       	st	Z, r21
+ 6ea:	2f 5f       	subi	r18, 0xFF	; 255
+ 6ec:	3f 4f       	sbci	r19, 0xFF	; 255
+ 6ee:	31 96       	adiw	r30, 0x01	; 1
+void ioport_configure_port_pin(void *port, pin_mask_t pin_mask,
+		port_pin_flags_t flags)
+{
+	uint8_t pin;
+
+	for (pin = 0; pin < 8; pin++) {
+ 6f0:	28 30       	cpi	r18, 0x08	; 8
+ 6f2:	31 05       	cpc	r19, r1
+ 6f4:	89 f7       	brne	.-30     	; 0x6d8 <ioport_configure_port_pin+0x10>
+		if (pin_mask & (1 << pin)) {
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
+		}
+	}
+	/* Select direction and initial pin state */
+	if (flags & IOPORT_DIR_OUTPUT) {
+ 6f6:	40 ff       	sbrs	r20, 0
+ 6f8:	0a c0       	rjmp	.+20     	; 0x70e <ioport_configure_port_pin+0x46>
+		if (flags & IOPORT_INIT_HIGH) {
+ 6fa:	41 ff       	sbrs	r20, 1
+ 6fc:	03 c0       	rjmp	.+6      	; 0x704 <ioport_configure_port_pin+0x3c>
+			*((uint8_t *)port + PORT_OUTSET) = pin_mask;
+ 6fe:	fc 01       	movw	r30, r24
+ 700:	65 83       	std	Z+5, r22	; 0x05
+ 702:	02 c0       	rjmp	.+4      	; 0x708 <ioport_configure_port_pin+0x40>
+		} else {
+			*((uint8_t *)port + PORT_OUTCLR) = pin_mask;
+ 704:	fc 01       	movw	r30, r24
+ 706:	66 83       	std	Z+6, r22	; 0x06
+		}
+
+		*((uint8_t *)port + PORT_DIRSET) = pin_mask;
+ 708:	fc 01       	movw	r30, r24
+ 70a:	61 83       	std	Z+1, r22	; 0x01
+ 70c:	02 c0       	rjmp	.+4      	; 0x712 <ioport_configure_port_pin+0x4a>
+	} else {
+		*((uint8_t *)port + PORT_DIRCLR) = pin_mask;
+ 70e:	fc 01       	movw	r30, r24
+ 710:	62 83       	std	Z+2, r22	; 0x02
+	}
+}
+ 712:	df 91       	pop	r29
+ 714:	cf 91       	pop	r28
+ 716:	08 95       	ret
+
+00000718 <spi_master_init>:
+		spi_read_single(spi, data);
+		data++;
+	}
+	
+	return STATUS_OK;
+}
+ 718:	0f 93       	push	r16
+ 71a:	1f 93       	push	r17
+ 71c:	cf 93       	push	r28
+ 71e:	df 93       	push	r29
+ 720:	ec 01       	movw	r28, r24
+ 722:	8c 01       	movw	r16, r24
+ 724:	c0 3c       	cpi	r28, 0xC0	; 192
+ 726:	88 e0       	ldi	r24, 0x08	; 8
+ 728:	d8 07       	cpc	r29, r24
+ 72a:	21 f4       	brne	.+8      	; 0x734 <spi_master_init+0x1c>
+ 72c:	68 e0       	ldi	r22, 0x08	; 8
+ 72e:	83 e0       	ldi	r24, 0x03	; 3
+ 730:	bf df       	rcall	.-130    	; 0x6b0 <sysclk_enable_module>
+ 732:	10 c0       	rjmp	.+32     	; 0x754 <spi_master_init+0x3c>
+ 734:	c0 3c       	cpi	r28, 0xC0	; 192
+ 736:	89 e0       	ldi	r24, 0x09	; 9
+ 738:	d8 07       	cpc	r29, r24
+ 73a:	21 f4       	brne	.+8      	; 0x744 <spi_master_init+0x2c>
+ 73c:	68 e0       	ldi	r22, 0x08	; 8
+ 73e:	84 e0       	ldi	r24, 0x04	; 4
+ 740:	b7 df       	rcall	.-146    	; 0x6b0 <sysclk_enable_module>
+ 742:	0e c0       	rjmp	.+28     	; 0x760 <spi_master_init+0x48>
+ 744:	c0 3c       	cpi	r28, 0xC0	; 192
+ 746:	8a e0       	ldi	r24, 0x0A	; 10
+ 748:	d8 07       	cpc	r29, r24
+ 74a:	21 f4       	brne	.+8      	; 0x754 <spi_master_init+0x3c>
+ 74c:	68 e0       	ldi	r22, 0x08	; 8
+ 74e:	85 e0       	ldi	r24, 0x05	; 5
+ 750:	af df       	rcall	.-162    	; 0x6b0 <sysclk_enable_module>
+ 752:	06 c0       	rjmp	.+12     	; 0x760 <spi_master_init+0x48>
+ 754:	00 3c       	cpi	r16, 0xC0	; 192
+ 756:	1b 40       	sbci	r17, 0x0B	; 11
+ 758:	19 f4       	brne	.+6      	; 0x760 <spi_master_init+0x48>
+ 75a:	68 e0       	ldi	r22, 0x08	; 8
+ 75c:	86 e0       	ldi	r24, 0x06	; 6
+ 75e:	a8 df       	rcall	.-176    	; 0x6b0 <sysclk_enable_module>
+ 760:	88 81       	ld	r24, Y
+ 762:	80 61       	ori	r24, 0x10	; 16
+ 764:	88 83       	st	Y, r24
+ 766:	df 91       	pop	r29
+ 768:	cf 91       	pop	r28
+ 76a:	1f 91       	pop	r17
+ 76c:	0f 91       	pop	r16
+ 76e:	08 95       	ret
+
+00000770 <spi_master_setup_device>:
+ 770:	ff 92       	push	r15
+ 772:	0f 93       	push	r16
+ 774:	1f 93       	push	r17
+ 776:	cf 93       	push	r28
+ 778:	df 93       	push	r29
+ 77a:	ec 01       	movw	r28, r24
+ 77c:	f4 2e       	mov	r15, r20
+ 77e:	b9 01       	movw	r22, r18
+ 780:	a8 01       	movw	r20, r16
+ 782:	00 e8       	ldi	r16, 0x80	; 128
+ 784:	14 e8       	ldi	r17, 0x84	; 132
+ 786:	2e e1       	ldi	r18, 0x1E	; 30
+ 788:	30 e0       	ldi	r19, 0x00	; 0
+ 78a:	4a d0       	rcall	.+148    	; 0x820 <spi_xmega_set_baud_div>
+ 78c:	88 23       	and	r24, r24
+ 78e:	4c f0       	brlt	.+18     	; 0x7a2 <spi_master_setup_device+0x32>
+ 790:	88 81       	ld	r24, Y
+ 792:	9f 2d       	mov	r25, r15
+ 794:	99 0f       	add	r25, r25
+ 796:	99 0f       	add	r25, r25
+ 798:	9c 70       	andi	r25, 0x0C	; 12
+ 79a:	83 7f       	andi	r24, 0xF3	; 243
+ 79c:	f9 2e       	mov	r15, r25
+ 79e:	f8 2a       	or	r15, r24
+ 7a0:	f8 82       	st	Y, r15
+ 7a2:	df 91       	pop	r29
+ 7a4:	cf 91       	pop	r28
+ 7a6:	1f 91       	pop	r17
+ 7a8:	0f 91       	pop	r16
+ 7aa:	ff 90       	pop	r15
+ 7ac:	08 95       	ret
+
+000007ae <spi_select_device>:
+ * \param device SPI device
+ *
+ */
+void spi_select_device(SPI_t *spi, struct spi_device *device)
+{
+	ioport_set_pin_low(device->id);
+ 7ae:	fb 01       	movw	r30, r22
+ 7b0:	80 81       	ld	r24, Z
+typedef uint8_t ioport_port_t;
+typedef uint8_t ioport_port_mask_t;
+
+__always_inline static ioport_port_t arch_ioport_pin_to_port_id(ioport_pin_t pin)
+{
+	return pin >> 3;
+ 7b2:	e8 2f       	mov	r30, r24
+ 7b4:	e6 95       	lsr	r30
+ 7b6:	e6 95       	lsr	r30
+ 7b8:	e6 95       	lsr	r30
+}
+
+__always_inline static PORT_t *arch_ioport_port_to_base(ioport_port_t port)
+{
+	return (PORT_t *)((uintptr_t)IOPORT_BASE_ADDRESS +
+	       (port * IOPORT_PORT_OFFSET));
+ 7ba:	40 e2       	ldi	r20, 0x20	; 32
+ 7bc:	e4 9f       	mul	r30, r20
+ 7be:	f0 01       	movw	r30, r0
+ 7c0:	11 24       	eor	r1, r1
+	return pin >> 3;
+}
+
+__always_inline static PORT_t *arch_ioport_port_to_base(ioport_port_t port)
+{
+	return (PORT_t *)((uintptr_t)IOPORT_BASE_ADDRESS +
+ 7c2:	fa 5f       	subi	r31, 0xFA	; 250
+}
+
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask(
+		ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 7c4:	87 70       	andi	r24, 0x07	; 7
+ 7c6:	21 e0       	ldi	r18, 0x01	; 1
+ 7c8:	30 e0       	ldi	r19, 0x00	; 0
+ 7ca:	a9 01       	movw	r20, r18
+ 7cc:	02 c0       	rjmp	.+4      	; 0x7d2 <spi_select_device+0x24>
+ 7ce:	44 0f       	add	r20, r20
+ 7d0:	55 1f       	adc	r21, r21
+ 7d2:	8a 95       	dec	r24
+ 7d4:	e2 f7       	brpl	.-8      	; 0x7ce <spi_select_device+0x20>
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+	} else {
+		base->OUTCLR = arch_ioport_pin_to_mask(pin);
+ 7d6:	46 83       	std	Z+6, r20	; 0x06
+ 7d8:	08 95       	ret
+
+000007da <spi_deselect_device>:
+ *
+ * \pre SPI device must be selected with spi_select_device() first
+ */
+void spi_deselect_device(SPI_t *spi, struct spi_device *device)
+{
+	ioport_set_pin_high(device->id);
+ 7da:	fb 01       	movw	r30, r22
+ 7dc:	80 81       	ld	r24, Z
+typedef uint8_t ioport_port_t;
+typedef uint8_t ioport_port_mask_t;
+
+__always_inline static ioport_port_t arch_ioport_pin_to_port_id(ioport_pin_t pin)
+{
+	return pin >> 3;
+ 7de:	e8 2f       	mov	r30, r24
+ 7e0:	e6 95       	lsr	r30
+ 7e2:	e6 95       	lsr	r30
+ 7e4:	e6 95       	lsr	r30
+}
+
+__always_inline static PORT_t *arch_ioport_port_to_base(ioport_port_t port)
+{
+	return (PORT_t *)((uintptr_t)IOPORT_BASE_ADDRESS +
+	       (port * IOPORT_PORT_OFFSET));
+ 7e6:	40 e2       	ldi	r20, 0x20	; 32
+ 7e8:	e4 9f       	mul	r30, r20
+ 7ea:	f0 01       	movw	r30, r0
+ 7ec:	11 24       	eor	r1, r1
+	return pin >> 3;
+}
+
+__always_inline static PORT_t *arch_ioport_port_to_base(ioport_port_t port)
+{
+	return (PORT_t *)((uintptr_t)IOPORT_BASE_ADDRESS +
+ 7ee:	fa 5f       	subi	r31, 0xFA	; 250
+}
+
+__always_inline static ioport_port_mask_t arch_ioport_pin_to_mask(
+		ioport_pin_t pin)
+{
+	return 1U << (pin & 0x07);
+ 7f0:	87 70       	andi	r24, 0x07	; 7
+ 7f2:	21 e0       	ldi	r18, 0x01	; 1
+ 7f4:	30 e0       	ldi	r19, 0x00	; 0
+ 7f6:	a9 01       	movw	r20, r18
+ 7f8:	02 c0       	rjmp	.+4      	; 0x7fe <spi_deselect_device+0x24>
+ 7fa:	44 0f       	add	r20, r20
+ 7fc:	55 1f       	adc	r21, r21
+ 7fe:	8a 95       	dec	r24
+ 800:	e2 f7       	brpl	.-8      	; 0x7fa <spi_deselect_device+0x20>
+		bool level)
+{
+	PORT_t *base = arch_ioport_pin_to_base(pin);
+
+	if (level) {
+		base->OUTSET = arch_ioport_pin_to_mask(pin);
+ 802:	45 83       	std	Z+5, r20	; 0x05
+ 804:	08 95       	ret
+
+00000806 <board_init>:
+ 806:	43 e0       	ldi	r20, 0x03	; 3
+ 808:	50 e0       	ldi	r21, 0x00	; 0
+ 80a:	68 e0       	ldi	r22, 0x08	; 8
+ 80c:	80 ec       	ldi	r24, 0xC0	; 192
+ 80e:	97 e0       	ldi	r25, 0x07	; 7
+ 810:	5b df       	rcall	.-330    	; 0x6c8 <ioport_configure_port_pin>
+ 812:	40 e0       	ldi	r20, 0x00	; 0
+ 814:	58 e1       	ldi	r21, 0x18	; 24
+ 816:	64 e0       	ldi	r22, 0x04	; 4
+ 818:	80 ec       	ldi	r24, 0xC0	; 192
+ 81a:	97 e0       	ldi	r25, 0x07	; 7
+ 81c:	55 cf       	rjmp	.-342    	; 0x6c8 <ioport_configure_port_pin>
+ 81e:	08 95       	ret
+
+00000820 <spi_xmega_set_baud_div>:
+ * \return Status of operation.
+ *   \retval >=0  Success.
+ *   \retval  <0  Error.
+ */
+int8_t spi_xmega_set_baud_div(SPI_t *spi, uint32_t baudrate, uint32_t clkper_hz)
+{
+ 820:	cf 92       	push	r12
+ 822:	df 92       	push	r13
+ 824:	ef 92       	push	r14
+ 826:	ff 92       	push	r15
+ 828:	0f 93       	push	r16
+ 82a:	1f 93       	push	r17
+ 82c:	cf 93       	push	r28
+ 82e:	df 93       	push	r29
+ 830:	ec 01       	movw	r28, r24
+ 832:	6a 01       	movw	r12, r20
+ 834:	7b 01       	movw	r14, r22
+
+	/*
+	 * Get wanted divisor rounded up so we don't get speed higher than
+	 * requested baudrate.
+	 */
+	divisor = (clkper_hz + baudrate - 1) / baudrate;
+ 836:	db 01       	movw	r26, r22
+ 838:	ca 01       	movw	r24, r20
+ 83a:	01 97       	sbiw	r24, 0x01	; 1
+ 83c:	a1 09       	sbc	r26, r1
+ 83e:	b1 09       	sbc	r27, r1
+ 840:	bc 01       	movw	r22, r24
+ 842:	cd 01       	movw	r24, r26
+ 844:	60 0f       	add	r22, r16
+ 846:	71 1f       	adc	r23, r17
+ 848:	82 1f       	adc	r24, r18
+ 84a:	93 1f       	adc	r25, r19
+ 84c:	a7 01       	movw	r20, r14
+ 84e:	96 01       	movw	r18, r12
+ 850:	58 d0       	rcall	.+176    	; 0x902 <__udivmodsi4>
+
+	if (divisor > 128) {
+ 852:	21 38       	cpi	r18, 0x81	; 129
+ 854:	31 05       	cpc	r19, r1
+ 856:	41 05       	cpc	r20, r1
+ 858:	51 05       	cpc	r21, r1
+ 85a:	f8 f4       	brcc	.+62     	; 0x89a <spi_xmega_set_baud_div+0x7a>
+
+	/*
+	 * For divisor values between the possible ones round up to the closest
+	 * higher one to avoid higher baudrate than requested.
+	 */
+	if (divisor_8bit > 64) {
+ 85c:	21 34       	cpi	r18, 0x41	; 65
+ 85e:	60 f4       	brcc	.+24     	; 0x878 <spi_xmega_set_baud_div+0x58>
+		ctrl = SPI_PRESCALER_DIV128_gc;
+	}
+	else if (divisor_8bit > 32) {
+ 860:	21 32       	cpi	r18, 0x21	; 33
+ 862:	60 f4       	brcc	.+24     	; 0x87c <spi_xmega_set_baud_div+0x5c>
+		ctrl = SPI_PRESCALER_DIV64_gc;
+	}
+	else if (divisor_8bit > 16) {
+ 864:	21 31       	cpi	r18, 0x11	; 17
+ 866:	60 f4       	brcc	.+24     	; 0x880 <spi_xmega_set_baud_div+0x60>
+		ctrl = SPI_CLK2X_bm | SPI_PRESCALER_DIV64_gc;
+	}
+	else if (divisor_8bit > 8) {
+ 868:	29 30       	cpi	r18, 0x09	; 9
+ 86a:	60 f4       	brcc	.+24     	; 0x884 <spi_xmega_set_baud_div+0x64>
+		ctrl = SPI_PRESCALER_DIV16_gc;
+	}
+	else if (divisor_8bit > 4) {
+ 86c:	25 30       	cpi	r18, 0x05	; 5
+ 86e:	60 f4       	brcc	.+24     	; 0x888 <spi_xmega_set_baud_div+0x68>
+		ctrl = SPI_CLK2X_bm | SPI_PRESCALER_DIV16_gc;
+	}
+	else if (divisor_8bit > 2) {
+ 870:	23 30       	cpi	r18, 0x03	; 3
+ 872:	60 f0       	brcs	.+24     	; 0x88c <spi_xmega_set_baud_div+0x6c>
+		ctrl = SPI_PRESCALER_DIV4_gc;
+ 874:	90 e0       	ldi	r25, 0x00	; 0
+ 876:	0b c0       	rjmp	.+22     	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	/*
+	 * For divisor values between the possible ones round up to the closest
+	 * higher one to avoid higher baudrate than requested.
+	 */
+	if (divisor_8bit > 64) {
+		ctrl = SPI_PRESCALER_DIV128_gc;
+ 878:	93 e0       	ldi	r25, 0x03	; 3
+ 87a:	09 c0       	rjmp	.+18     	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	}
+	else if (divisor_8bit > 32) {
+		ctrl = SPI_PRESCALER_DIV64_gc;
+ 87c:	92 e0       	ldi	r25, 0x02	; 2
+ 87e:	07 c0       	rjmp	.+14     	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	}
+	else if (divisor_8bit > 16) {
+		ctrl = SPI_CLK2X_bm | SPI_PRESCALER_DIV64_gc;
+ 880:	92 e8       	ldi	r25, 0x82	; 130
+ 882:	05 c0       	rjmp	.+10     	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	}
+	else if (divisor_8bit > 8) {
+		ctrl = SPI_PRESCALER_DIV16_gc;
+ 884:	91 e0       	ldi	r25, 0x01	; 1
+ 886:	03 c0       	rjmp	.+6      	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	}
+	else if (divisor_8bit > 4) {
+		ctrl = SPI_CLK2X_bm | SPI_PRESCALER_DIV16_gc;
+ 888:	91 e8       	ldi	r25, 0x81	; 129
+ 88a:	01 c0       	rjmp	.+2      	; 0x88e <spi_xmega_set_baud_div+0x6e>
+	}
+	else if (divisor_8bit > 2) {
+		ctrl = SPI_PRESCALER_DIV4_gc;
+	}
+	else {
+		ctrl = SPI_CLK2X_bm | SPI_PRESCALER_DIV4_gc;
+ 88c:	90 e8       	ldi	r25, 0x80	; 128
+	}
+
+	// Update register and make sure to clear out any leftover bits
+	spi->CTRL = (spi->CTRL & ~(SPI_CLK2X_bm | SPI_PRESCALER_gm)) | ctrl;
+ 88e:	88 81       	ld	r24, Y
+ 890:	8c 77       	andi	r24, 0x7C	; 124
+ 892:	89 2b       	or	r24, r25
+ 894:	88 83       	st	Y, r24
+
+	return 1;
+ 896:	81 e0       	ldi	r24, 0x01	; 1
+ 898:	01 c0       	rjmp	.+2      	; 0x89c <spi_xmega_set_baud_div+0x7c>
+	if (divisor > 128) {
+		/*
+		 * Highest possible divisor is 128 so fail since we can't get
+		 * low enough baudrate.
+		 */
+		return -1;
+ 89a:	8f ef       	ldi	r24, 0xFF	; 255
+
+	// Update register and make sure to clear out any leftover bits
+	spi->CTRL = (spi->CTRL & ~(SPI_CLK2X_bm | SPI_PRESCALER_gm)) | ctrl;
+
+	return 1;
+}
+ 89c:	df 91       	pop	r29
+ 89e:	cf 91       	pop	r28
+ 8a0:	1f 91       	pop	r17
+ 8a2:	0f 91       	pop	r16
+ 8a4:	ff 90       	pop	r15
+ 8a6:	ef 90       	pop	r14
+ 8a8:	df 90       	pop	r13
+ 8aa:	cf 90       	pop	r12
+ 8ac:	08 95       	ret
+
+000008ae <main>:
+uint32_t y = 0;
+
+int main (void)
+{
+	//board-specific
+	board_init();
+ 8ae:	ab df       	rcall	.-170    	; 0x806 <board_init>
+	ioport_init();
+	ssd1306_init();
+ 8b0:	84 de       	rcall	.-760    	; 0x5ba <ssd1306_init>
+	
+	//v2x power sequencing
+	init_power_seq();
+ 8b2:	b0 dd       	rcall	.-1184   	; 0x414 <init_power_seq>
+	
+	//v2x real time clock
+	init_vrtc();
+ 8b4:	09 de       	rcall	.-1006   	; 0x4c8 <init_vrtc>
+
+#ifdef CONFIG_SLEEPMGR_ENABLE
+	uint8_t *lock_ptr = sleepmgr_locks;
+
+	// Find first non-zero lock count, starting with the shallowest modes.
+	while (!(*lock_ptr)) {
+ 8b6:	c6 e0       	ldi	r28, 0x06	; 6
+ 8b8:	d0 e2       	ldi	r29, 0x20	; 32
+ 8ba:	87 e0       	ldi	r24, 0x07	; 7
+ 8bc:	90 e2       	ldi	r25, 0x20	; 32
+ *
+ * \param mode Sleep mode, from the device IO header file.
+ */
+static inline void sleep_set_mode(enum SLEEP_SMODE_enum mode)
+{
+	SLEEP.CTRL = mode | (SLEEP.CTRL & ~SLEEP_SMODE_gm);
+ 8be:	a8 e4       	ldi	r26, 0x48	; 72
+ 8c0:	b0 e0       	ldi	r27, 0x00	; 0
+static inline void sleepmgr_enter_sleep(void)
+{
+#ifdef CONFIG_SLEEPMGR_ENABLE
+	enum sleepmgr_mode sleep_mode;
+
+	cpu_irq_disable();
+ 8c2:	f8 94       	cli
+
+#ifdef CONFIG_SLEEPMGR_ENABLE
+	uint8_t *lock_ptr = sleepmgr_locks;
+
+	// Find first non-zero lock count, starting with the shallowest modes.
+	while (!(*lock_ptr)) {
+ 8c4:	28 81       	ld	r18, Y
+ 8c6:	21 11       	cpse	r18, r1
+ 8c8:	07 c0       	rjmp	.+14     	; 0x8d8 <main+0x2a>
+ 8ca:	fc 01       	movw	r30, r24
+		lock_ptr++;
+		sleep_mode = (enum sleepmgr_mode)(sleep_mode + 1);
+ 8cc:	2f 5f       	subi	r18, 0xFF	; 255
+
+#ifdef CONFIG_SLEEPMGR_ENABLE
+	uint8_t *lock_ptr = sleepmgr_locks;
+
+	// Find first non-zero lock count, starting with the shallowest modes.
+	while (!(*lock_ptr)) {
+ 8ce:	31 91       	ld	r19, Z+
+ 8d0:	33 23       	and	r19, r19
+ 8d2:	e1 f3       	breq	.-8      	; 0x8cc <main+0x1e>
+	cpu_irq_disable();
+
+	// Find the deepest allowable sleep mode
+	sleep_mode = sleepmgr_get_sleep_mode();
+	// Return right away if first mode (ACTIVE) is locked.
+	if (sleep_mode==SLEEPMGR_ACTIVE) {
+ 8d4:	21 11       	cpse	r18, r1
+ 8d6:	02 c0       	rjmp	.+4      	; 0x8dc <main+0x2e>
+		cpu_irq_enable();
+ 8d8:	78 94       	sei
+ 8da:	f3 cf       	rjmp	.-26     	; 0x8c2 <main+0x14>
+ 8dc:	3c 91       	ld	r19, X
+
+static inline void sleepmgr_sleep(const enum sleepmgr_mode sleep_mode)
+{
+	Assert(sleep_mode != SLEEPMGR_ACTIVE);
+#ifdef CONFIG_SLEEPMGR_ENABLE
+	sleep_set_mode(sleepmgr_configs[sleep_mode-1]);
+ 8de:	e2 2f       	mov	r30, r18
+ 8e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 8e2:	e1 50       	subi	r30, 0x01	; 1
+ 8e4:	f0 4e       	sbci	r31, 0xE0	; 224
+ 8e6:	23 2f       	mov	r18, r19
+ 8e8:	21 7f       	andi	r18, 0xF1	; 241
+ 8ea:	30 81       	ld	r19, Z
+ 8ec:	23 2b       	or	r18, r19
+ 8ee:	2c 93       	st	X, r18
+	sleep_enable();
+ 8f0:	2c 91       	ld	r18, X
+ 8f2:	21 60       	ori	r18, 0x01	; 1
+ 8f4:	2c 93       	st	X, r18
+
+	cpu_irq_enable();
+ 8f6:	78 94       	sei
+	sleep_enter();
+ 8f8:	88 95       	sleep
+
+	sleep_disable();
+ 8fa:	2c 91       	ld	r18, X
+ 8fc:	2e 7f       	andi	r18, 0xFE	; 254
+ 8fe:	2c 93       	st	X, r18
+ 900:	e0 cf       	rjmp	.-64     	; 0x8c2 <main+0x14>
+
+00000902 <__udivmodsi4>:
+ 902:	a1 e2       	ldi	r26, 0x21	; 33
+ 904:	1a 2e       	mov	r1, r26
+ 906:	aa 1b       	sub	r26, r26
+ 908:	bb 1b       	sub	r27, r27
+ 90a:	fd 01       	movw	r30, r26
+ 90c:	0d c0       	rjmp	.+26     	; 0x928 <__udivmodsi4_ep>
+
+0000090e <__udivmodsi4_loop>:
+ 90e:	aa 1f       	adc	r26, r26
+ 910:	bb 1f       	adc	r27, r27
+ 912:	ee 1f       	adc	r30, r30
+ 914:	ff 1f       	adc	r31, r31
+ 916:	a2 17       	cp	r26, r18
+ 918:	b3 07       	cpc	r27, r19
+ 91a:	e4 07       	cpc	r30, r20
+ 91c:	f5 07       	cpc	r31, r21
+ 91e:	20 f0       	brcs	.+8      	; 0x928 <__udivmodsi4_ep>
+ 920:	a2 1b       	sub	r26, r18
+ 922:	b3 0b       	sbc	r27, r19
+ 924:	e4 0b       	sbc	r30, r20
+ 926:	f5 0b       	sbc	r31, r21
+
+00000928 <__udivmodsi4_ep>:
+ 928:	66 1f       	adc	r22, r22
+ 92a:	77 1f       	adc	r23, r23
+ 92c:	88 1f       	adc	r24, r24
+ 92e:	99 1f       	adc	r25, r25
+ 930:	1a 94       	dec	r1
+ 932:	69 f7       	brne	.-38     	; 0x90e <__udivmodsi4_loop>
+ 934:	60 95       	com	r22
+ 936:	70 95       	com	r23
+ 938:	80 95       	com	r24
+ 93a:	90 95       	com	r25
+ 93c:	9b 01       	movw	r18, r22
+ 93e:	ac 01       	movw	r20, r24
+ 940:	bd 01       	movw	r22, r26
+ 942:	cf 01       	movw	r24, r30
+ 944:	08 95       	ret
+
+00000946 <_exit>:
+ 946:	f8 94       	cli
+
+00000948 <__stop_program>:
+ 948:	ff cf       	rjmp	.-2      	; 0x948 <__stop_program>
