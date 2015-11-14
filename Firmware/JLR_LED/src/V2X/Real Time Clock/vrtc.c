@@ -22,22 +22,12 @@
  *	
  */
 
-typedef struct alarm_node_t alarm_node;
-struct alarm_node_t {
-	unsigned int alarm_epoch_seconds;
-	void * alarm_callback_function;
-	alarm_node * prev;
-	alarm_node * next;
-};
-
-
 //TODO: Remove for testing
-static void alarm(uint32_t time)
+static void alarm1(uint32_t time)
 {
 	ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
 	//rtc_set_alarm_relative(1024);
-	rtc_set_callback(alarm2);
-	rtc_set_alarm_relative(32768*2);
+	setNextAlarmRoutine();
 }
 
 //TODO: Remove for testing
@@ -48,8 +38,13 @@ static void alarm2(uint32_t time) {
 		ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
 		delay_ms(50);
 	}
-	rtc_set_callback(alarm);
-	rtc_set_alarm_relative(32768);
+	setNextAlarmRoutine();
+}
+
+static void alarm3(uint32_t time) {
+	
+	return;
+	
 }
 
 void init_vrtc(){
@@ -62,46 +57,97 @@ void init_vrtc(){
 	
 	//v2x init
 	soft_counter = 0x00;
-	rtc_set_callback(alarm);
+	alarm_list_head = NULL;
+	rtc_set_callback(alarm1);
 	rtc_set_alarm_relative(32768);
 	
 }
 
-void setNextAlarmRoutine(rtc_callback_t callback) {
-	rtc_set_callback(callback);
+void setNextAlarmRoutine() {
+	alarm_node * next_alarm_node;
+	next_alarm_node = extractNextAlarmNode(&alarm_list_head);
+	
+	//check if there's another alarm to be set
+	if (next_alarm_node) {
+		rtc_set_callback(next_alarm_node->alarm_callback_function);
+		rtc_set_alarm(next_alarm_node->alarm_epoch_seconds);
+	}
 }
 
-alarm_node * popNextAlarmNode(alarm_node * head) {
+void addAlarm(uint32_t eSeconds, void (*alarmRoutine)(uint32_t) ) {
+	alarm_node * newAlarmNode= (alarm_node *)malloc(sizeof(alarm_node));
+	newAlarmNode->alarm_epoch_seconds = eSeconds;
+	newAlarmNode->alarm_callback_function = alarmRoutine;
+	
+	//find position to insert
+	alarm_node * curr = alarm_list_head;
+	
+	//MUTEX ACQUIRE NEEDED HERE?
+	
+	while (curr->next) {
+		curr = curr->next;
+		//position was found
+		if (curr->alarm_epoch_seconds > newAlarmNode->alarm_epoch_seconds) {
+			
+			if (curr == alarm_list_head) {
+				alarm_list_head->prev = newAlarmNode;
+				newAlarmNode->prev = NULL;
+				newAlarmNode->next = alarm_list_head;
+				alarm_list_head = newAlarmNode;
+			}
+			
+			newAlarmNode->next = curr;
+			newAlarmNode->prev = curr->prev;
+			(curr->prev)->next = newAlarmNode;
+			curr->prev = newAlarmNode;
 
-	alarm_node * earliest = head;
-	alarm_node * curr = head;
+			return;
+		}
+	}
+	
+	//insert at tail
+	curr->next = newAlarmNode;
+	newAlarmNode->prev = curr;
+	newAlarmNode->next = NULL;
+	
+	//MUTEX RELEASE NEEDED HERE?
+	
+}
 
-	while (curr) {
+
+alarm_node * extractNextAlarmNode(alarm_node ** head) {
+
+	alarm_node * earliest = *head;
+	alarm_node * curr = *head;
+
+	while (curr->next) {
+		curr = curr->next;
 		if (curr->alarm_epoch_seconds < earliest->alarm_epoch_seconds) {
 			earliest = curr;
 		}
-		curr = curr->next;
 	}
 
-	/* TODO: TEST CASES TO POP EARLIEST*/
-	if (earliest == head) {
-		head = head->next;
+	//check if there's a left node
+	//if there's a right node, then we reassign
+	// NODE-> <-EARLIEST-> <-NODE
+	if (earliest->prev && earliest->next) {
+		(earliest->next)->prev = earliest->prev;
+		(earliest->prev)->next = earliest->next;
 	}
-
+	//check if head and if there's any other alarm nodes
+	else if (earliest == *head) {
+		if ((*head)->next) {
+			*head = (*head)->next;
+			(*head)->prev = NULL;
+		}
+	}
+	//check if tail
 	else if (!earliest->next) {
-		earliest->prev = NULL;
-	}
-
-	else {
-		earliest->prev->next = earliest->next;
-		earliest->next->prev = earliest->prev;
+		(earliest->prev)->next = NULL;
 	}
 
 	return earliest;
 }
-
-
-
 
 //Redefined from rtc.c
 ISR(RTC_OVF_vect)
