@@ -54,11 +54,14 @@
         conf_clock.h as it is now done in sysclk_init()
 #endif
 
+//redefined in rtc.h as a dependency work-around for vrtc.c
+/*
 #ifdef CONFIG_RTC_OVERFLOW_INT_LEVEL
 # define RTC_OVERFLOW_INT_LEVEL CONFIG_RTC_OVERFLOW_INT_LEVEL
 #else
 # define RTC_OVERFLOW_INT_LEVEL RTC_OVFINTLVL_LO_gc
 #endif
+*/
 
 #ifdef CONFIG_RTC_COMPARE_INT_LEVEL
 # define RTC_COMPARE_INT_LEVEL CONFIG_RTC_COMPARE_INT_LEVEL
@@ -258,6 +261,10 @@ ISR(RTC_OVF_vect)
  * \internal
  * \brief Compare interrupt used for alarm
  */
+
+//kevinC
+//DEPRECATED interrupt, see vrtc.c in V2X API
+/*
 ISR(RTC_COMP_vect)
 {
 	if (rtc_data.counter_high >= rtc_data.alarm_high) {
@@ -267,23 +274,16 @@ ISR(RTC_COMP_vect)
 					| RTC.CNT;
 			uint32_t alarm = ((uint32_t)rtc_data.alarm_high << 16)
 					| rtc_data.alarm_low;
-			/* Workaround for errata. Count might not be updated
+
+			 * Workaround for errata. Count might not be updated
 			 * when waking up from sleep, so in this case use alarm
 			 * time plus one.
-			 */
+			 *
 			if (alarm >= count)
 				count = alarm + 1;
 			rtc_data.callback(count);
-			
-			/* 
-			 * kevinC
-			 * Need to check a queue here to see 
-			 * if there is another alarm to be set
-			 * pop from priority queue (pq) which  will hold
-			 * tuples of (time,func*). The key for pq elements
-			 * is time.
-			 * 
-			 */
+
 		}
 	}
 }
+*/

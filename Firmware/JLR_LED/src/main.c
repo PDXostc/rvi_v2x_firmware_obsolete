@@ -50,6 +50,40 @@ struct step seq[SEQ_SIZE];
 uint32_t x = 0;
 uint32_t y = 0;
 
+//TODO: Remove, for testing alarms functionality
+static void alarm1(uint32_t time)
+{
+	//LED BLIP
+	ioport_set_pin_level(LED_0_PIN,LED_0_ACTIVE);
+	delay_ms(200);
+	ioport_set_pin_level(LED_0_PIN,LED_0_INACTIVE);
+
+}
+
+//TODO: Remove, for testing alarm functionality
+static void alarm2(uint32_t time) {
+	int i;
+	
+	// LED FAST BURST
+	for (i=0; i<10; i++) {
+		ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+		delay_ms(50);
+	}
+	//ioport_set_pin_level(LED_0_PIN,LED_0_INACTIVE);
+}
+
+//TODO: Remove, for testing alarm functionality
+static void alarm3(uint32_t time) {
+	int i;
+	
+	// LED SLOW BURST
+	for (i=0; i<5; i++) {
+		ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+		delay_ms(150);
+	}
+	ioport_set_pin_level(LED_0_PIN,LED_0_INACTIVE);
+}
+
 int main (void)
 {
 	//board-specific
@@ -71,73 +105,33 @@ int main (void)
 	
 	*************/
 	
+	//currently every  high_counter=.5t
+	addAlarm(2, alarm2);	// fast burst
+	addAlarm(4, alarm1);	// blink
+	//addAlarm(12, alarm2);	// fast burst
+	//addAlarm(14, alarm3);	// slow burst
+	//addAlarm(8, alarm3);	// slow burst
 	
-	/*
-	uint16_t i;
-	for (i=0; i<SEQ_SIZE; i++) {
-		seq[i].interval = (i%16)*7+1;
-		seq[i].value = values[i];
-	}
+	// fast, blink, slow, fast, slow
+	unsigned char z = 0;
+	unsigned char a = 0;
 	
-	while (1) {			
-		run_sequence(seq, SEQ_SIZE);	
-	}
-	
-	*/
-	//testing turn off and on
-	
-	//bits_To_Shift_Register(0xFFFF);
-	
-	/*
-	delay_s(1);
-	turn_off(B);
-	delay_s(1);
-	turn_off(D);
-	delay_s(1);
-	turn_on(B);
-	delay_s(1);
-	turn_off(G);
-	*/
-	//int flag = 1;
-	//gpio_set_pin_low(SR_CLEAR);
-
-	/*
-	state = J;
-	bits_To_Shift_Register(state);
-	//delay_ms(400);
-	state=state|K;
-	//delay_ms(400);
-	bits_To_Shift_Register(state);
-	//delay_ms(400);
-	state=0x0000;
-	bits_To_Shift_Register(state);
-	//delay_ms(400);
-	state=A;
-	bits_To_Shift_Register(state);
-	//delay_ms(400);
-	state=B+C+D+G;
-	bits_To_Shift_Register(state);
-	*/
 	while(1){
+		
+		// Sleep between each triggered alarm
 		sleepmgr_enter_sleep();
-
-		/*
-		if (flag && ioport_get_pin_level(BUTTON_0_PIN) == BUTTON_0_ACTIVE) {
-			ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
-			flag = 0;
+		
+		// Can extend alarm test here to create additional alarms
+		// relative to the current time.
+		if (!z && rtc_data.counter_high > 6) {
+			addAlarm(8, alarm2);
+			z = 1;
 		}
-		if (ioport_get_pin_level(BUTTON_0_PIN) == BUTTON_0_INACTIVE) 
-			flag = 1;
-			//ioport_set_pin_level(LED_0_PIN,LED_0_INACTIVE);
-		*/
+		else if (!a && rtc_data.counter_high > 9) {
+			addAlarm(11, alarm2);
+			a = 1;
+		}
 
-		/*
-		y = x;
-		x = rtc_get_time();
-		//delay_ms(50);		
-		if (x%50 == 49)
-			delay_ms(10);
-		*/
 	}
 }
 

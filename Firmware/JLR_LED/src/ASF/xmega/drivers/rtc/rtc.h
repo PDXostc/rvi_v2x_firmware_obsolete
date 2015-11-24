@@ -92,6 +92,13 @@
 # define CONFIG_RTC_OVERFLOW_INT_LEVEL
 #endif
 
+//kevinC vrtc.c dependency work-around 
+#ifdef CONFIG_RTC_OVERFLOW_INT_LEVEL
+# define RTC_OVERFLOW_INT_LEVEL CONFIG_RTC_OVERFLOW_INT_LEVEL
+#else
+# define RTC_OVERFLOW_INT_LEVEL RTC_OVFINTLVL_LO_gc
+#endif
+
 /**
  * \def CONFIG_RTC_PRESCALER
  * \brief Configuration symbol for prescaler to use
