@@ -106,13 +106,14 @@ int main (void)
 	*************/
 	
 	//currently every  high_counter=.5t
-	addAlarm(2, alarm2);	// fast burst
-	addAlarm(4, alarm1);	// blink
-	//addAlarm(12, alarm2);	// fast burst
-	//addAlarm(14, alarm3);	// slow burst
-	//addAlarm(8, alarm3);	// slow burst
+	uint32_t test_time = 1448436421;
+	setEpochTime(test_time);
+	addAlarm(test_time+2, alarm1);	// blink
+	addAlarm(test_time+4, alarm2);	// fast burst
+	addAlarm(test_time+5, alarm3);	// slow burst
+	//addAlarm(test_time+14, alarm3);	// slow burst
+	//addAlarm(test_time+8, alarm3);	// slow burst
 	
-	// fast, blink, slow, fast, slow
 	unsigned char z = 0;
 	unsigned char a = 0;
 	
@@ -123,15 +124,16 @@ int main (void)
 		
 		// Can extend alarm test here to create additional alarms
 		// relative to the current time.
+		/*
 		if (!z && rtc_data.counter_high > 6) {
-			addAlarm(8, alarm2);
+			addAlarm(test_time+8, alarm2);
 			z = 1;
 		}
 		else if (!a && rtc_data.counter_high > 9) {
-			addAlarm(11, alarm2);
+			addAlarm(test_time+11, alarm2);
 			a = 1;
 		}
-
+		*/
 	}
 }
 

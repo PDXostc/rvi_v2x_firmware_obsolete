@@ -65,6 +65,7 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  ../src/V2X/Power\ Sequence/../common/../../asf.h \
  ../src/V2X/Real\ Time\ Clock/vrtc.h \
  ../src/V2X/Real\ Time\ Clock/../common/v2xcomm.h \
+ ../src/V2X/Real\ Time\ Clock/epoch.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\string.h
@@ -218,6 +219,8 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 ../src/V2X/Real\ Time\ Clock/vrtc.h:
 
 ../src/V2X/Real\ Time\ Clock/../common/v2xcomm.h:
+
+../src/V2X/Real\ Time\ Clock/epoch.h:
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h:
 

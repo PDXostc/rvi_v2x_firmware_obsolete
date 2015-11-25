@@ -33,9 +33,20 @@ void init_vrtc(){
 	//v2x init
 	soft_counter = 0x00;
 	alarm_list_head = NULL;
-	//rtc_set_callback(alarm1);
-	//rtc_set_alarm_relative(32768);
+}
+
+
+// currently clock is set such that counter_high is incremented every 2 seconds
+// 
+void setEpochTime(uint32_t sec) { 
+	uint32_t sec_rtc = ( ((uint32_t)(sec / 2) % ((uint32_t)1 << 16)) << 16 );
+	sec_rtc += ((sec % 2) * CLOCK_FREQ);
+	rtc_set_time(sec_rtc);
+	soft_counter = (uint16_t)( (uint32_t)(sec / 2) / ((uint32_t)1 << 16) );
 	
+	// Let ASF RTC handle rtc set
+	// rtc_data.counter_high = (uint16_t)( (uint32_t)(sec / 2) % ((uint32_t)1 << 16) );
+	// RTC.CNT = (sec % 2) * CLOCK_FREQ;
 }
 
 void setNextAlarmRoutine() {
@@ -202,34 +213,23 @@ alarm_node * extractNextAlarmNode(alarm_node ** head) {
 //Redefined from rtc.c
 ISR(RTC_OVF_vect)
 {
-	//if (rtc_data.counter_high == 0)
-	//	rtc_data.counter_high = 65533;
-	
-	if (++(rtc_data.counter_high) == 0) {
-		//ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+	if (++(rtc_data.counter_high) == 0) 
 		soft_counter++;
-	}
-	//ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
 }
 
 //Redefined from rtc.c
 //Should wake the device at regular intervals RTC_COMP_vect
-
 ISR(RTC_COMP_vect)
 {
-	//RTC.CNT is a 32 bit word register holding the value of the clock (or the pre-scaled clock??)
+	//uint32_t curr_time = (uint32_t)((uint32_t)soft_counter << 16) | (uint32_t)rtc_data.counter_high;
+	//convert to epoch time
+	uint32_t curr_epoch_time = (uint32_t)(((uint32_t)((uint32_t)soft_counter << 16) | (uint32_t)rtc_data.counter_high));
+	curr_epoch_time <<= 2;
+	curr_epoch_time |= (uint32_t)(RTC.CNT/CLOCK_FREQ);
 	
-	// uint32_t curr_time =	(uint32_t)((uint32_t)soft_counter << 16) |
-	// 						(uint32_t)((uint32_t)rtc_data.counter_high * 2) |
-	// 						(uint32_t)RTC.CNT; // frequency????********;	
+	uint32_t alarm_time = ((uint32_t)((uint32_t)rtc_data.alarm_high << 16) | (uint32_t)rtc_data.alarm_low);
 
-	uint32_t curr_time = (uint32_t)((uint32_t)soft_counter << 16) | (uint32_t)rtc_data.counter_high;
-
-	// currently curr_time represents half-seconds
-	// therefore divide this quantity by 2
-	uint32_t alarm_time = ((uint32_t)((uint32_t)rtc_data.alarm_high << 16) | (uint32_t)rtc_data.alarm_low) / 2;
-
-	if (curr_time > alarm_time && alarm_curr_ref && !alarm_curr_ref->expired) {
+	if (curr_epoch_time > alarm_time && alarm_curr_ref && !alarm_curr_ref->expired) {
 		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
 		if (rtc_data.callback) {
 			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)

@@ -82,8 +82,7 @@ C_SRCS +=  \
 ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.c \
 ../src/ASF/xmega/drivers/rtc/rtc.c \
 ../src/V2X/Power\ Sequence/powerSeq.c \
-../src/V2X/Real\ Time\ Clock/dateToEpoch.c \
-../src/V2X/Real\ Time\ Clock/parseISO.c \
+../src/V2X/Real\ Time\ Clock/epoch.c \
 ../src/V2X/Real\ Time\ Clock/vrtc.c \
 ../src/ASF/common/components/display/ssd1306/font.c \
 ../src/ASF/common/components/display/ssd1306/ssd1306.c \
@@ -108,8 +107,7 @@ OBJS +=  \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o \
 src/ASF/xmega/drivers/rtc/rtc.o \
 src/V2X/Power\ Sequence/powerSeq.o \
-src/V2X/Real\ Time\ Clock/dateToEpoch.o \
-src/V2X/Real\ Time\ Clock/parseISO.o \
+src/V2X/Real\ Time\ Clock/epoch.o \
 src/V2X/Real\ Time\ Clock/vrtc.o \
 src/ASF/common/components/display/ssd1306/font.o \
 src/ASF/common/components/display/ssd1306/ssd1306.o \
@@ -127,8 +125,7 @@ OBJS_AS_ARGS +=  \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o \
 src/ASF/xmega/drivers/rtc/rtc.o \
 "src/V2X/Power Sequence/powerSeq.o" \
-"src/V2X/Real Time Clock/dateToEpoch.o" \
-"src/V2X/Real Time Clock/parseISO.o" \
+"src/V2X/Real Time Clock/epoch.o" \
 "src/V2X/Real Time Clock/vrtc.o" \
 src/ASF/common/components/display/ssd1306/font.o \
 src/ASF/common/components/display/ssd1306/ssd1306.o \
@@ -146,8 +143,7 @@ C_DEPS +=  \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.d \
 src/ASF/xmega/drivers/rtc/rtc.d \
 src/V2X/Power\ Sequence/powerSeq.d \
-src/V2X/Real\ Time\ Clock/dateToEpoch.d \
-src/V2X/Real\ Time\ Clock/parseISO.d \
+src/V2X/Real\ Time\ Clock/epoch.d \
 src/V2X/Real\ Time\ Clock/vrtc.d \
 src/ASF/common/components/display/ssd1306/font.d \
 src/ASF/common/components/display/ssd1306/ssd1306.d \
@@ -165,8 +161,7 @@ C_DEPS_AS_ARGS +=  \
 src/ASF/common/services/sleepmgr/xmega/sleepmgr.d \
 src/ASF/xmega/drivers/rtc/rtc.d \
 "src/V2X/Power Sequence/powerSeq.d" \
-"src/V2X/Real Time Clock/dateToEpoch.d" \
-"src/V2X/Real Time Clock/parseISO.d" \
+"src/V2X/Real Time Clock/epoch.d" \
 "src/V2X/Real Time Clock/vrtc.d" \
 src/ASF/common/components/display/ssd1306/font.d \
 src/ASF/common/components/display/ssd1306/ssd1306.d \
@@ -205,14 +200,7 @@ src/V2X/Power\ Sequence/powerSeq.o: ../src/V2X/Power\ Sequence/powerSeq.c
 	@echo Finished building: $<
 	
 
-src/V2X/Real\ Time\ Clock/dateToEpoch.o: ../src/V2X/Real\ Time\ Clock/dateToEpoch.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=XMEGA_A1U_XPLAINED_PRO -DIOPORT_XMEGA_COMPAT  -I"../common/applications/xplained_pro_user_application/xmega_a1u_xplained_pro/config" -I"../src/ASF/xmega/utils" -I"../src/config" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/xmega/boards/xmega_a1u_xplained_pro" -I"../src/ASF/common/components/display/ssd1306" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/spi" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/spi/xmega_spi" -I"../src/ASF/common/services/spi" -I"../src/ASF/xmega/drivers/rtc" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/xmega/drivers/pmic"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atxmega128a1u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/V2X/Real\ Time\ Clock/parseISO.o: ../src/V2X/Real\ Time\ Clock/parseISO.c
+src/V2X/Real\ Time\ Clock/epoch.o: ../src/V2X/Real\ Time\ Clock/epoch.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=XMEGA_A1U_XPLAINED_PRO -DIOPORT_XMEGA_COMPAT  -I"../common/applications/xplained_pro_user_application/xmega_a1u_xplained_pro/config" -I"../src/ASF/xmega/utils" -I"../src/config" -I"../src/ASF/common/boards" -I"../src/ASF/xmega/boards" -I"../src/ASF/xmega/utils/preprocessor" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/xmega/boards/xmega_a1u_xplained_pro" -I"../src/ASF/common/components/display/ssd1306" -I"../src/ASF/xmega/drivers/cpu" -I"../src/ASF/xmega/drivers/nvm" -I"../src/ASF/xmega/drivers/spi" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/spi/xmega_spi" -I"../src/ASF/common/services/spi" -I"../src/ASF/xmega/drivers/rtc" -I"../src/ASF/xmega/drivers/sleep" -I"../src/ASF/common/services/sleepmgr" -I"../src/ASF/xmega/drivers/pmic"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atxmega128a1u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

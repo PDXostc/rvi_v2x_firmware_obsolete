@@ -10,12 +10,12 @@
 #define VRTC_H_
 
 #include "../common/v2xcomm.h"
+#include "epoch.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <time.h>
 
-
+#define CLOCK_FREQ 32768
 
 typedef struct alarm_node_t alarm_node;
 struct alarm_node_t {
@@ -30,11 +30,10 @@ volatile uint16_t soft_counter;
 alarm_node * alarm_list_head;// = NULL;
 alarm_node * alarm_curr_ref; //reference to current set alarm
 
-//static void alarm(uint32_t time);
-//static void alarm2(uint32_t time);
-void init_vrtc(void);
-void setNextAlarmRoutine(void);
 
+void init_vrtc(void);
+void setEpochTime(uint32_t);
+void setNextAlarmRoutine(void);
 alarm_node * peakNextAlarmNode(alarm_node ** head);
 void removeExpiredAlarms (void);
 alarm_node * extractNextAlarmNode(alarm_node ** head);

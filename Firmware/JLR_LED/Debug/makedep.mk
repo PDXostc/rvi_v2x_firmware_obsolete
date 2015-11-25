@@ -8,9 +8,7 @@ src\ASF\xmega\drivers\rtc\rtc.c
 
 src\V2X\Power Sequence\powerSeq.c
 
-src\V2X\Real Time Clock\dateToEpoch.c
-
-src\V2X\Real Time Clock\parseISO.c
+src\V2X\Real Time Clock\epoch.c
 
 src\V2X\Real Time Clock\vrtc.c
 

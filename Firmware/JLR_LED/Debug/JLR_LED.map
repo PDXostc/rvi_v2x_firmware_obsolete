@@ -25,7 +25,7 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libm.a(fp_zero.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libm.a(divsf3x.o) (__fp_szero)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_divmodhi4.o)
-                              src/V2X/Real Time Clock/dateToEpoch.o (__divmodhi4)
+                              src/V2X/Real Time Clock/epoch.o (__divmodhi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_udivmodsi4.o)
                               src/ASF/xmega/drivers/spi/spi.o (__udivmodsi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_exit.o)
@@ -43,9 +43,9 @@ c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-t
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_udivmodhi4.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_divmodhi4.o) (__udivmodhi4)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(malloc.o)
-                              src/V2X/Real Time Clock/parseISO.o (malloc)
+                              src/V2X/Real Time Clock/epoch.o (malloc)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(atoi.o)
-                              src/V2X/Real Time Clock/parseISO.o (atoi)
+                              src/V2X/Real Time Clock/epoch.o (atoi)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(memcpy.o)
                               src/ASF/xmega/drivers/nvm/nvm.o (memcpy)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(mul10.o)
@@ -149,8 +149,6 @@ Discarded input sections
  .bss           0x00000000        0x0 src/ASF/xmega/drivers/rtc/rtc.o
  .text.rtc_alarm_has_triggered
                 0x00000000       0x12 src/ASF/xmega/drivers/rtc/rtc.o
- .text.rtc_set_time
-                0x00000000       0x24 src/ASF/xmega/drivers/rtc/rtc.o
  .text.rtc_get_time
                 0x00000000       0x56 src/ASF/xmega/drivers/rtc/rtc.o
  .debug_macro   0x00000000      0xa78 src/ASF/xmega/drivers/rtc/rtc.o
@@ -292,65 +290,49 @@ Discarded input sections
  .debug_macro   0x00000000       0x5e src/V2X/Power Sequence/powerSeq.o
  .debug_macro   0x00000000       0x10 src/V2X/Power Sequence/powerSeq.o
  COMMON         0x00000000        0x2 src/V2X/Power Sequence/powerSeq.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/dateToEpoch.o
- .text          0x00000000        0x0 src/V2X/Real Time Clock/dateToEpoch.o
- .data          0x00000000        0x0 src/V2X/Real Time Clock/dateToEpoch.o
- .bss           0x00000000        0x0 src/V2X/Real Time Clock/dateToEpoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .group         0x00000000        0x8 src/V2X/Real Time Clock/epoch.o
+ .text          0x00000000        0x0 src/V2X/Real Time Clock/epoch.o
+ .data          0x00000000        0x0 src/V2X/Real Time Clock/epoch.o
+ .bss           0x00000000        0x0 src/V2X/Real Time Clock/epoch.o
  .text.dateToEpoch
-                0x00000000      0x1c2 src/V2X/Real Time Clock/dateToEpoch.o
- .data.months   0x00000000       0x18 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_info    0x00000000      0x143 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_abbrev  0x00000000       0xb9 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_loc     0x00000000      0x439 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_aranges
-                0x00000000       0x20 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_ranges  0x00000000       0x10 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_macro   0x00000000       0x11 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_macro   0x00000000      0xa78 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_line    0x00000000       0xf2 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_str     0x00000000     0x2c13 src/V2X/Real Time Clock/dateToEpoch.o
- .comment       0x00000000       0x31 src/V2X/Real Time Clock/dateToEpoch.o
- .debug_frame   0x00000000       0x84 src/V2X/Real Time Clock/dateToEpoch.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .group         0x00000000        0x8 src/V2X/Real Time Clock/parseISO.o
- .text          0x00000000        0x0 src/V2X/Real Time Clock/parseISO.o
- .data          0x00000000        0x0 src/V2X/Real Time Clock/parseISO.o
- .bss           0x00000000        0x0 src/V2X/Real Time Clock/parseISO.o
+                0x00000000      0x1c2 src/V2X/Real Time Clock/epoch.o
  .text.parseISO
-                0x00000000      0x11e src/V2X/Real Time Clock/parseISO.o
- .debug_info    0x00000000      0x2b8 src/V2X/Real Time Clock/parseISO.o
- .debug_abbrev  0x00000000      0x118 src/V2X/Real Time Clock/parseISO.o
- .debug_loc     0x00000000      0x1a4 src/V2X/Real Time Clock/parseISO.o
+                0x00000000      0x11e src/V2X/Real Time Clock/epoch.o
+ .data.months   0x00000000       0x18 src/V2X/Real Time Clock/epoch.o
+ .debug_info    0x00000000      0x3bf src/V2X/Real Time Clock/epoch.o
+ .debug_abbrev  0x00000000      0x175 src/V2X/Real Time Clock/epoch.o
+ .debug_loc     0x00000000      0x5d0 src/V2X/Real Time Clock/epoch.o
  .debug_aranges
-                0x00000000       0x20 src/V2X/Real Time Clock/parseISO.o
- .debug_ranges  0x00000000       0x10 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x88 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000      0xa78 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000      0x1ad src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000      0x293 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x58 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x10 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x97 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0xeb src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x1c src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x97 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x66 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x16 src/V2X/Real Time Clock/parseISO.o
- .debug_macro   0x00000000       0x20 src/V2X/Real Time Clock/parseISO.o
- .debug_line    0x00000000      0x228 src/V2X/Real Time Clock/parseISO.o
- .debug_str     0x00000000     0x42c5 src/V2X/Real Time Clock/parseISO.o
- .comment       0x00000000       0x31 src/V2X/Real Time Clock/parseISO.o
- .debug_frame   0x00000000       0x4c src/V2X/Real Time Clock/parseISO.o
+                0x00000000       0x28 src/V2X/Real Time Clock/epoch.o
+ .debug_ranges  0x00000000       0x18 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x92 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000      0xa78 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000      0x1ad src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000      0x293 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x58 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x10 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x97 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0xeb src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x1c src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x97 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x66 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x16 src/V2X/Real Time Clock/epoch.o
+ .debug_macro   0x00000000       0x20 src/V2X/Real Time Clock/epoch.o
+ .debug_line    0x00000000      0x2dc src/V2X/Real Time Clock/epoch.o
+ .debug_str     0x00000000     0x4321 src/V2X/Real Time Clock/epoch.o
+ .comment       0x00000000       0x31 src/V2X/Real Time Clock/epoch.o
+ .debug_frame   0x00000000       0xbc src/V2X/Real Time Clock/epoch.o
  .group         0x00000000        0x8 src/V2X/Real Time Clock/vrtc.o
  .group         0x00000000        0x8 src/V2X/Real Time Clock/vrtc.o
  .group         0x00000000        0x8 src/V2X/Real Time Clock/vrtc.o
@@ -1711,8 +1693,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-
 LOAD src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
 LOAD src/ASF/xmega/drivers/rtc/rtc.o
 LOAD src/V2X/Power Sequence/powerSeq.o
-LOAD src/V2X/Real Time Clock/dateToEpoch.o
-LOAD src/V2X/Real Time Clock/parseISO.o
+LOAD src/V2X/Real Time Clock/epoch.o
 LOAD src/V2X/Real Time Clock/vrtc.o
 LOAD src/ASF/common/components/display/ssd1306/font.o
 LOAD src/ASF/common/components/display/ssd1306/ssd1306.o
@@ -1825,7 +1806,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xe4e
+.text           0x00000000      0xf04
  *(.vectors)
  .vectors       0x00000000      0x1fc c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7/crtx128a1u.o
                 0x00000000                __vector_default
@@ -2009,87 +1990,94 @@ END GROUP
                 0x00000244                __vector_120
                 0x00000246                . = ALIGN (0x2)
  *(.text.*)
+ .text.rtc_set_time
+                0x00000246       0x24 src/ASF/xmega/drivers/rtc/rtc.o
+                0x00000246                rtc_set_time
  .text.rtc_set_alarm
-                0x00000246       0x30 src/ASF/xmega/drivers/rtc/rtc.o
-                0x00000246                rtc_set_alarm
+                0x0000026a       0x30 src/ASF/xmega/drivers/rtc/rtc.o
+                0x0000026a                rtc_set_alarm
  .text.rtc_set_callback
-                0x00000276        0xa src/ASF/xmega/drivers/rtc/rtc.o
-                0x00000276                rtc_set_callback
+                0x0000029a        0xa src/ASF/xmega/drivers/rtc/rtc.o
+                0x0000029a                rtc_set_callback
  .text.rtc_init
-                0x00000280       0x32 src/ASF/xmega/drivers/rtc/rtc.o
-                0x00000280                rtc_init
+                0x000002a4       0x32 src/ASF/xmega/drivers/rtc/rtc.o
+                0x000002a4                rtc_init
  .text.init_power_seq
-                0x000002b2       0x4e src/V2X/Power Sequence/powerSeq.o
-                0x000002b2                init_power_seq
+                0x000002d6       0x4e src/V2X/Power Sequence/powerSeq.o
+                0x000002d6                init_power_seq
  .text.init_vrtc
-                0x00000300       0x3a src/V2X/Real Time Clock/vrtc.o
-                0x00000300                init_vrtc
+                0x00000324       0x3a src/V2X/Real Time Clock/vrtc.o
+                0x00000324                init_vrtc
+ .text.setEpochTime
+                0x0000035e       0x7a src/V2X/Real Time Clock/vrtc.o
+                0x0000035e                setEpochTime
  .text.peakNextAlarmNode
-                0x0000033a       0x80 src/V2X/Real Time Clock/vrtc.o
-                0x0000033a                peakNextAlarmNode
+                0x000003d8       0x80 src/V2X/Real Time Clock/vrtc.o
+                0x000003d8                peakNextAlarmNode
  .text.setNextAlarmRoutine
-                0x000003ba       0x36 src/V2X/Real Time Clock/vrtc.o
-                0x000003ba                setNextAlarmRoutine
+                0x00000458       0x36 src/V2X/Real Time Clock/vrtc.o
+                0x00000458                setNextAlarmRoutine
  .text.removeExpiredAlarms
-                0x000003f0       0x84 src/V2X/Real Time Clock/vrtc.o
-                0x000003f0                removeExpiredAlarms
+                0x0000048e       0x84 src/V2X/Real Time Clock/vrtc.o
+                0x0000048e                removeExpiredAlarms
  .text.addAlarm
-                0x00000474      0x110 src/V2X/Real Time Clock/vrtc.o
-                0x00000474                addAlarm
+                0x00000512      0x110 src/V2X/Real Time Clock/vrtc.o
+                0x00000512                addAlarm
  .text.__vector_10
-                0x00000584       0x5c src/V2X/Real Time Clock/vrtc.o
-                0x00000584                __vector_10
+                0x00000622       0x5c src/V2X/Real Time Clock/vrtc.o
+                0x00000622                __vector_10
  .text.__vector_11
-                0x000005e0      0x180 src/V2X/Real Time Clock/vrtc.o
-                0x000005e0                __vector_11
+                0x0000067e      0x1a4 src/V2X/Real Time Clock/vrtc.o
+                0x0000067e                __vector_11
  .text.ssd1306_write_command
-                0x00000760       0x40 src/ASF/common/components/display/ssd1306/ssd1306.o
+                0x00000822       0x40 src/ASF/common/components/display/ssd1306/ssd1306.o
  .text.ssd1306_init
-                0x000007a0       0xb4 src/ASF/common/components/display/ssd1306/ssd1306.o
-                0x000007a0                ssd1306_init
+                0x00000862       0xb4 src/ASF/common/components/display/ssd1306/ssd1306.o
+                0x00000862                ssd1306_init
  .text.sysclk_init
-                0x00000854       0x42 src/ASF/common/services/clock/xmega/sysclk.o
-                0x00000854                sysclk_init
+                0x00000916       0x42 src/ASF/common/services/clock/xmega/sysclk.o
+                0x00000916                sysclk_init
  .text.sysclk_enable_module
-                0x00000896       0x18 src/ASF/common/services/clock/xmega/sysclk.o
-                0x00000896                sysclk_enable_module
+                0x00000958       0x18 src/ASF/common/services/clock/xmega/sysclk.o
+                0x00000958                sysclk_enable_module
  .text.ioport_configure_port_pin
-                0x000008ae       0x50 src/ASF/common/services/ioport/xmega/ioport_compat.o
-                0x000008ae                ioport_configure_port_pin
+                0x00000970       0x50 src/ASF/common/services/ioport/xmega/ioport_compat.o
+                0x00000970                ioport_configure_port_pin
  .text.spi_master_init
-                0x000008fe       0x58 src/ASF/common/services/spi/xmega_spi/spi_master.o
-                0x000008fe                spi_master_init
+                0x000009c0       0x58 src/ASF/common/services/spi/xmega_spi/spi_master.o
+                0x000009c0                spi_master_init
  .text.spi_master_setup_device
-                0x00000956       0x3e src/ASF/common/services/spi/xmega_spi/spi_master.o
-                0x00000956                spi_master_setup_device
+                0x00000a18       0x3e src/ASF/common/services/spi/xmega_spi/spi_master.o
+                0x00000a18                spi_master_setup_device
  .text.spi_select_device
-                0x00000994       0x2c src/ASF/common/services/spi/xmega_spi/spi_master.o
-                0x00000994                spi_select_device
+                0x00000a56       0x2c src/ASF/common/services/spi/xmega_spi/spi_master.o
+                0x00000a56                spi_select_device
  .text.spi_deselect_device
-                0x000009c0       0x2c src/ASF/common/services/spi/xmega_spi/spi_master.o
-                0x000009c0                spi_deselect_device
+                0x00000a82       0x2c src/ASF/common/services/spi/xmega_spi/spi_master.o
+                0x00000a82                spi_deselect_device
  .text.board_init
-                0x000009ec       0x1a src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
-                0x000009ec                board_init
+                0x00000aae       0x1a src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+                0x00000aae                board_init
  .text.spi_xmega_set_baud_div
-                0x00000a06       0x8e src/ASF/xmega/drivers/spi/spi.o
-                0x00000a06                spi_xmega_set_baud_div
- .text.alarm1   0x00000a94       0x28 src/main.o
- .text.alarm2   0x00000abc       0x30 src/main.o
- .text.main     0x00000aec       0xcc src/main.o
-                0x00000aec                main
+                0x00000ac8       0x8e src/ASF/xmega/drivers/spi/spi.o
+                0x00000ac8                spi_xmega_set_baud_div
+ .text.alarm1   0x00000b56       0x28 src/main.o
+ .text.alarm2   0x00000b7e       0x30 src/main.o
+ .text.alarm3   0x00000bae       0x38 src/main.o
+ .text.main     0x00000be6       0x88 src/main.o
+                0x00000be6                main
  .text.libgcc.div
-                0x00000bb8       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_udivmodsi4.o)
-                0x00000bb8                __udivmodsi4
+                0x00000c6e       0x44 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_udivmodsi4.o)
+                0x00000c6e                __udivmodsi4
  .text.avr-libc
-                0x00000bfc      0x24e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(malloc.o)
-                0x00000bfc                malloc
-                0x00000d2c                free
-                0x00000e4a                . = ALIGN (0x2)
+                0x00000cb2      0x24e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(malloc.o)
+                0x00000cb2                malloc
+                0x00000de2                free
+                0x00000f00                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000e4a        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_exit.o)
-                0x00000e4a                _exit
-                0x00000e4a                exit
+ .fini9         0x00000f00        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_exit.o)
+                0x00000f00                _exit
+                0x00000f00                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -2108,11 +2096,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000e4a        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_exit.o)
+ .fini0         0x00000f00        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avrxmega7\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000e4e                _etext = .
+                0x00000f04                _etext = .
 
-.data           0x00802000        0xc load address 0x00000e4e
+.data           0x00802000        0xc load address 0x00000f04
                 0x00802000                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00802000        0x6 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avrxmega7\libc.a(malloc.o)
@@ -2147,8 +2135,8 @@ END GROUP
                 0x00802020                __brkval
                 0x00802022                __flp
                 0x00802024                PROVIDE (__bss_end, .)
-                0x00000e4e                __data_load_start = LOADADDR (.data)
-                0x00000e5a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000f04                __data_load_start = LOADADDR (.data)
+                0x00000f10                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00802024        0x0
                 0x00802024                PROVIDE (__noinit_start, .)
@@ -2225,7 +2213,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x248
+.debug_aranges  0x00000000      0x258
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x18 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
@@ -2234,81 +2222,81 @@ END GROUP
  .debug_aranges
                 0x00000060       0x48 src/V2X/Power Sequence/powerSeq.o
  .debug_aranges
-                0x000000a8       0x58 src/V2X/Real Time Clock/vrtc.o
+                0x000000a8       0x60 src/V2X/Real Time Clock/vrtc.o
  .debug_aranges
-                0x00000100       0x30 src/ASF/common/components/display/ssd1306/ssd1306.o
+                0x00000108       0x30 src/ASF/common/components/display/ssd1306/ssd1306.o
  .debug_aranges
-                0x00000130       0x40 src/ASF/common/services/clock/xmega/sysclk.o
+                0x00000138       0x40 src/ASF/common/services/clock/xmega/sysclk.o
  .debug_aranges
-                0x00000170       0x20 src/ASF/common/services/ioport/xmega/ioport_compat.o
+                0x00000178       0x20 src/ASF/common/services/ioport/xmega/ioport_compat.o
  .debug_aranges
-                0x00000190       0x48 src/ASF/common/services/spi/xmega_spi/spi_master.o
+                0x00000198       0x48 src/ASF/common/services/spi/xmega_spi/spi_master.o
  .debug_aranges
-                0x000001d8       0x20 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+                0x000001e0       0x20 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
  .debug_aranges
-                0x000001f8       0x20 src/ASF/xmega/drivers/spi/spi.o
+                0x00000200       0x20 src/ASF/xmega/drivers/spi/spi.o
  .debug_aranges
-                0x00000218       0x30 src/main.o
+                0x00000220       0x38 src/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5031
+.debug_info     0x00000000     0x51e7
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x121 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
  .debug_info    0x00000121      0x6a7 src/ASF/xmega/drivers/rtc/rtc.o
- .debug_info    0x000007c8      0xcbe src/V2X/Power Sequence/powerSeq.o
- .debug_info    0x00001486      0x8bd src/V2X/Real Time Clock/vrtc.o
- .debug_info    0x00001d43      0xcfc src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_info    0x00002a3f      0x817 src/ASF/common/services/clock/xmega/sysclk.o
- .debug_info    0x00003256      0x11d src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_info    0x00003373      0xbb4 src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_info    0x00003f27      0x3ea src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_info    0x00004311      0x1b9 src/ASF/xmega/drivers/spi/spi.o
- .debug_info    0x000044ca      0xb67 src/main.o
+ .debug_info    0x000007c8      0xcbf src/V2X/Power Sequence/powerSeq.o
+ .debug_info    0x00001487      0x925 src/V2X/Real Time Clock/vrtc.o
+ .debug_info    0x00001dac      0xcfc src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_info    0x00002aa8      0x817 src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_info    0x000032bf      0x11d src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_info    0x000033dc      0xbb4 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_info    0x00003f90      0x3ea src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_info    0x0000437a      0x1b9 src/ASF/xmega/drivers/spi/spi.o
+ .debug_info    0x00004533      0xcb4 src/main.o
 
-.debug_abbrev   0x00000000     0x1740
+.debug_abbrev   0x00000000     0x1768
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x80 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
  .debug_abbrev  0x00000080      0x29b src/ASF/xmega/drivers/rtc/rtc.o
- .debug_abbrev  0x0000031b      0x306 src/V2X/Power Sequence/powerSeq.o
- .debug_abbrev  0x00000621      0x2fb src/V2X/Real Time Clock/vrtc.o
- .debug_abbrev  0x0000091c      0x2ee src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_abbrev  0x00000c0a      0x26c src/ASF/common/services/clock/xmega/sysclk.o
- .debug_abbrev  0x00000e76       0x93 src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_abbrev  0x00000f09      0x29c src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_abbrev  0x000011a5      0x160 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_abbrev  0x00001305       0xf6 src/ASF/xmega/drivers/spi/spi.o
- .debug_abbrev  0x000013fb      0x345 src/main.o
+ .debug_abbrev  0x0000031b      0x2ee src/V2X/Power Sequence/powerSeq.o
+ .debug_abbrev  0x00000609      0x30a src/V2X/Real Time Clock/vrtc.o
+ .debug_abbrev  0x00000913      0x2ee src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_abbrev  0x00000c01      0x26c src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_abbrev  0x00000e6d       0x93 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_abbrev  0x00000f00      0x29c src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_abbrev  0x0000119c      0x160 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_abbrev  0x000012fc       0xf6 src/ASF/xmega/drivers/spi/spi.o
+ .debug_abbrev  0x000013f2      0x376 src/main.o
 
-.debug_line     0x00000000     0x5189
+.debug_line     0x00000000     0x5200
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x431 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
  .debug_line    0x00000431      0x731 src/ASF/xmega/drivers/rtc/rtc.o
  .debug_line    0x00000b62      0xa54 src/V2X/Power Sequence/powerSeq.o
- .debug_line    0x000015b6      0xc43 src/V2X/Real Time Clock/vrtc.o
- .debug_line    0x000021f9      0x8bb src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_line    0x00002ab4      0x643 src/ASF/common/services/clock/xmega/sysclk.o
- .debug_line    0x000030f7      0x48e src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_line    0x00003585      0x77e src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_line    0x00003d03      0x4c5 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_line    0x000041c8      0x4d2 src/ASF/xmega/drivers/spi/spi.o
- .debug_line    0x0000469a      0xaef src/main.o
+ .debug_line    0x000015b6      0xc89 src/V2X/Real Time Clock/vrtc.o
+ .debug_line    0x0000223f      0x8bb src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_line    0x00002afa      0x643 src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_line    0x0000313d      0x48e src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_line    0x000035cb      0x77e src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_line    0x00003d49      0x4c5 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_line    0x0000420e      0x4d2 src/ASF/xmega/drivers/spi/spi.o
+ .debug_line    0x000046e0      0xb20 src/main.o
 
-.debug_frame    0x00000000      0x59c
+.debug_frame    0x00000000      0x5dc
  *(.debug_frame)
  .debug_frame   0x00000000       0x80 src/ASF/xmega/drivers/rtc/rtc.o
  .debug_frame   0x00000080       0xe0 src/V2X/Power Sequence/powerSeq.o
- .debug_frame   0x00000160      0x180 src/V2X/Real Time Clock/vrtc.o
- .debug_frame   0x000002e0       0xd0 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_frame   0x000003b0       0x64 src/ASF/common/services/clock/xmega/sysclk.o
- .debug_frame   0x00000414       0x30 src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_frame   0x00000444       0xa4 src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_frame   0x000004e8       0x24 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_frame   0x0000050c       0x4c src/ASF/xmega/drivers/spi/spi.o
- .debug_frame   0x00000558       0x44 src/main.o
+ .debug_frame   0x00000160      0x1b0 src/V2X/Real Time Clock/vrtc.o
+ .debug_frame   0x00000310       0xd0 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_frame   0x000003e0       0x64 src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_frame   0x00000444       0x30 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_frame   0x00000474       0xa4 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_frame   0x00000518       0x24 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_frame   0x0000053c       0x4c src/ASF/xmega/drivers/spi/spi.o
+ .debug_frame   0x00000588       0x54 src/main.o
 
-.debug_str      0x00000000    0x2d329
+.debug_str      0x00000000    0x2d37a
  *(.debug_str)
  .debug_str     0x00000000    0x279e6 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
                               0x28030 (size before relaxing)
@@ -2316,34 +2304,34 @@ END GROUP
                               0x2af03 (size before relaxing)
  .debug_str     0x0002a85a     0x19ee src/V2X/Power Sequence/powerSeq.o
                               0x2c687 (size before relaxing)
- .debug_str     0x0002c248      0x88a src/V2X/Real Time Clock/vrtc.o
-                              0x2caf6 (size before relaxing)
- .debug_str     0x0002cad2      0x1d4 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_str     0x0002c248      0x8ca src/V2X/Real Time Clock/vrtc.o
+                              0x2cb43 (size before relaxing)
+ .debug_str     0x0002cb12      0x1d4 src/ASF/common/components/display/ssd1306/ssd1306.o
                               0x2bbfa (size before relaxing)
- .debug_str     0x0002cca6      0x26b src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_str     0x0002cce6      0x26b src/ASF/common/services/clock/xmega/sysclk.o
                               0x2aafa (size before relaxing)
- .debug_str     0x0002cf11       0x41 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_str     0x0002cf51       0x41 src/ASF/common/services/ioport/xmega/ioport_compat.o
                               0x28239 (size before relaxing)
- .debug_str     0x0002cf52      0x201 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_str     0x0002cf92      0x201 src/ASF/common/services/spi/xmega_spi/spi_master.o
                               0x2b309 (size before relaxing)
- .debug_str     0x0002d153       0x47 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_str     0x0002d193       0x47 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
                               0x2a310 (size before relaxing)
- .debug_str     0x0002d19a       0xbf src/ASF/xmega/drivers/spi/spi.o
+ .debug_str     0x0002d1da       0xbf src/ASF/xmega/drivers/spi/spi.o
                               0x282b8 (size before relaxing)
- .debug_str     0x0002d259       0xd0 src/main.o
-                              0x2cddc (size before relaxing)
+ .debug_str     0x0002d299       0xe1 src/main.o
+                              0x2ce15 (size before relaxing)
 
-.debug_loc      0x00000000     0x18a9
+.debug_loc      0x00000000     0x19b2
  *(.debug_loc)
  .debug_loc     0x00000000       0x85 src/ASF/xmega/drivers/rtc/rtc.o
  .debug_loc     0x00000085      0x2f7 src/V2X/Power Sequence/powerSeq.o
- .debug_loc     0x0000037c      0x66b src/V2X/Real Time Clock/vrtc.o
- .debug_loc     0x000009e7      0x445 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_loc     0x00000e2c      0x255 src/ASF/common/services/clock/xmega/sysclk.o
- .debug_loc     0x00001081       0x66 src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_loc     0x000010e7      0x528 src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_loc     0x0000160f      0x105 src/ASF/xmega/drivers/spi/spi.o
- .debug_loc     0x00001714      0x195 src/main.o
+ .debug_loc     0x0000037c      0x778 src/V2X/Real Time Clock/vrtc.o
+ .debug_loc     0x00000af4      0x445 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_loc     0x00000f39      0x255 src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_loc     0x0000118e       0x66 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_loc     0x000011f4      0x528 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_loc     0x0000171c      0x105 src/ASF/xmega/drivers/spi/spi.o
+ .debug_loc     0x00001821      0x191 src/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2363,20 +2351,20 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x288
+.debug_ranges   0x00000000      0x2b0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x38 src/ASF/xmega/drivers/rtc/rtc.o
  .debug_ranges  0x00000038       0x68 src/V2X/Power Sequence/powerSeq.o
- .debug_ranges  0x000000a0       0x48 src/V2X/Real Time Clock/vrtc.o
- .debug_ranges  0x000000e8       0x50 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_ranges  0x00000138       0x30 src/ASF/common/services/clock/xmega/sysclk.o
- .debug_ranges  0x00000168       0x10 src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_ranges  0x00000178       0x38 src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_ranges  0x000001b0       0x10 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_ranges  0x000001c0       0x10 src/ASF/xmega/drivers/spi/spi.o
- .debug_ranges  0x000001d0       0xb8 src/main.o
+ .debug_ranges  0x000000a0       0x50 src/V2X/Real Time Clock/vrtc.o
+ .debug_ranges  0x000000f0       0x50 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_ranges  0x00000140       0x30 src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_ranges  0x00000170       0x10 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_ranges  0x00000180       0x38 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_ranges  0x000001b8       0x10 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_ranges  0x000001c8       0x10 src/ASF/xmega/drivers/spi/spi.o
+ .debug_ranges  0x000001d8       0xd8 src/main.o
 
-.debug_macro    0x00000000     0xb7f2
+.debug_macro    0x00000000     0xb812
  *(.debug_macro)
  .debug_macro   0x00000000      0x1a3 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
  .debug_macro   0x000001a3      0xa78 src/ASF/common/services/sleepmgr/xmega/sleepmgr.o
@@ -2433,17 +2421,17 @@ END GROUP
  .debug_macro   0x0000a081       0x40 src/V2X/Power Sequence/powerSeq.o
  .debug_macro   0x0000a0c1       0xff src/V2X/Power Sequence/powerSeq.o
  .debug_macro   0x0000a1c0       0x7c src/V2X/Power Sequence/powerSeq.o
- .debug_macro   0x0000a23c      0x360 src/V2X/Real Time Clock/vrtc.o
- .debug_macro   0x0000a59c      0x274 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_macro   0x0000a810       0xf1 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_macro   0x0000a901       0x12 src/ASF/common/components/display/ssd1306/ssd1306.o
- .debug_macro   0x0000a913      0x1eb src/ASF/common/services/clock/xmega/sysclk.o
- .debug_macro   0x0000aafe      0x193 src/ASF/common/services/ioport/xmega/ioport_compat.o
- .debug_macro   0x0000ac91      0x235 src/ASF/common/services/spi/xmega_spi/spi_master.o
- .debug_macro   0x0000aec6      0x1bc src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_macro   0x0000b082      0x242 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
- .debug_macro   0x0000b2c4      0x1a7 src/ASF/xmega/drivers/spi/spi.o
- .debug_macro   0x0000b46b      0x387 src/main.o
+ .debug_macro   0x0000a23c      0x370 src/V2X/Real Time Clock/vrtc.o
+ .debug_macro   0x0000a5ac      0x274 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_macro   0x0000a820       0xf1 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_macro   0x0000a911       0x12 src/ASF/common/components/display/ssd1306/ssd1306.o
+ .debug_macro   0x0000a923      0x1eb src/ASF/common/services/clock/xmega/sysclk.o
+ .debug_macro   0x0000ab0e      0x193 src/ASF/common/services/ioport/xmega/ioport_compat.o
+ .debug_macro   0x0000aca1      0x235 src/ASF/common/services/spi/xmega_spi/spi_master.o
+ .debug_macro   0x0000aed6      0x1bc src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_macro   0x0000b092      0x242 src/ASF/xmega/boards/xmega_a1u_xplained_pro/board_init.o
+ .debug_macro   0x0000b2d4      0x1a7 src/ASF/xmega/drivers/spi/spi.o
+ .debug_macro   0x0000b47b      0x397 src/main.o
 OUTPUT(JLR_LED.elf elf32-avr)
 LOAD linker stubs
 
