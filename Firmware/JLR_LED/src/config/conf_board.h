@@ -47,4 +47,33 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
+//kevinC
+#define RXE0           		IOPORT_CREATE_PIN(PORTE,2)
+#define TXE0				IOPORT_CREATE_PIN(PORTE,3)
+
+
+#define RXF0           		IOPORT_CREATE_PIN(PORTF,2)
+#define TXF0				IOPORT_CREATE_PIN(PORTF,3)
+
+//! Definition of USART connection for this example
+#define  USART               USARTE0
+#define  USART_RX_Vect       USARTE0_RXC_vect
+#define  USART_DRE_Vect      USARTE0_DRE_vect
+#define  USART_SYSCLK        SYSCLK_USART0
+#define  USART_PORT          PORTE
+#define  USART_PORT_PIN_TX   TXE0
+#define  USART_PORT_PIN_RX   RXE0
+#define  USART_PORT_SYSCLK   SYSCLK_PORT_E
+
+//! V2X Defined //can also try E1
+#define  V_USART               USARTF0
+#define  V_USART_RX_Vect       USARTF0_RXC_vect
+#define  V_USART_DRE_Vect      USARTF0_DRE_vect
+#define  V_USART_SYSCLK        SYSCLK_USART0
+#define  V_USART_PORT          PORTF
+#define  V_USART_PORT_PIN_TX   TXF0
+#define  V_USART_PORT_PIN_RX   RXF0
+#define  V_USART_PORT_SYSCLK   SYSCLK_PORT_F
+//end kevinC
+
 #endif /* CONF_BOARD_H_INCLUDED */
