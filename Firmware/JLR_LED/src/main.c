@@ -38,7 +38,7 @@
 #include "conf_usb.h"
 #include "ui.h"
 #include "uart.h"
-
+#include "main.h"
 static volatile bool main_b_cdc_enable = false;
 
 

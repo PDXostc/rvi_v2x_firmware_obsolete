@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\common\services\serial\usart_serial.c
+
 src\ASF\common\services\sleepmgr\xmega\sleepmgr.c
 
 src\ASF\common\services\usb\class\cdc\device\example\atxmega128a1u_xmega_a1u_xplained_pro\ui.c
