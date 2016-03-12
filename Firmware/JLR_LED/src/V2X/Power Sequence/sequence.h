@@ -49,6 +49,7 @@ struct power_state power;
 void init_power_seq(void);
 void bits_To_Shift_Register(uint16_t bits);
 void run_sequence(struct step sequence[], int size);
+void set_register(void);
 void turn_on (uint16_t pin_name_on);
 void turn_off(uint16_t pin_name_off);
 

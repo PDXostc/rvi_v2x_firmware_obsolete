@@ -22,36 +22,6 @@
  *	
  */
 
-typedef struct alarm_node_t alarm_node;
-struct alarm_node_t {
-	unsigned int alarm_epoch_seconds;
-	void * alarm_callback_function;
-	alarm_node * prev;
-	alarm_node * next;
-};
-
-
-//TODO: Remove for testing
-static void alarm(uint32_t time)
-{
-	ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
-	//rtc_set_alarm_relative(1024);
-	rtc_set_callback(alarm2);
-	rtc_set_alarm_relative(32768*2);
-}
-
-//TODO: Remove for testing
-static void alarm2(uint32_t time) {
-	int i;
-	
-	for (i=0; i<10; i++) {
-		ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
-		delay_ms(50);
-	}
-	rtc_set_callback(alarm);
-	rtc_set_alarm_relative(32768);
-}
-
 void init_vrtc(){
 	//real time clock inits
 	pmic_init();
@@ -62,57 +32,230 @@ void init_vrtc(){
 	
 	//v2x init
 	soft_counter = 0x00;
-	rtc_set_callback(alarm);
-	rtc_set_alarm_relative(32768);
+	alarm_list_head = NULL;
+}
+
+
+// currently clock is set such that counter_high is incremented every 2 seconds
+// 
+void setEpochTime(uint32_t sec) { 
+	uint32_t sec_rtc = ( ((uint32_t)(sec / 2) % ((uint32_t)1 << 16)) << 16 );
+	sec_rtc += ((sec % 2) * CLOCK_FREQ);
+	rtc_set_time(sec_rtc);
+	soft_counter = (uint16_t)( (uint32_t)(sec / 2) / ((uint32_t)1 << 16) );
+	
+	// Let ASF RTC handle rtc set
+	// rtc_data.counter_high = (uint16_t)( (uint32_t)(sec / 2) % ((uint32_t)1 << 16) );
+	// RTC.CNT = (sec % 2) * CLOCK_FREQ;
+}
+
+void setNextAlarmRoutine() {
+	alarm_node * next_alarm_node;
+	next_alarm_node = peakNextAlarmNode(&alarm_list_head);
+	
+	//check if there's another alarm to be set
+	if (next_alarm_node) {
+		rtc_set_callback(next_alarm_node->alarm_callback_function);
+		rtc_set_alarm(next_alarm_node->alarm_epoch_seconds);
+	}
+	
+	// clear the alarm routine callback
+	else 
+		rtc_set_callback(NULL);
+	
+	//update the current reference
+	alarm_curr_ref = next_alarm_node;
+}
+
+void addAlarm(uint32_t eSeconds, void (*alarmRoutine)(uint32_t) ) {
+
+	//clean up expired nodes
+	removeExpiredAlarms();
+
+	alarm_node * newAlarmNode= (alarm_node *)malloc(sizeof(alarm_node));
+	newAlarmNode->alarm_epoch_seconds = eSeconds;
+	newAlarmNode->alarm_callback_function = alarmRoutine;
+	newAlarmNode->expired = 0;
+
+	//no list instantiated, begin new one
+	if (!alarm_list_head) {
+		alarm_list_head = newAlarmNode;
+		alarm_list_head->next = NULL;
+		alarm_list_head->prev = NULL;
+		
+		// initiate the new alarm and return
+		alarm_curr_ref = alarm_list_head;
+		rtc_set_callback(alarm_list_head->alarm_callback_function);
+		rtc_set_alarm(alarm_list_head->alarm_epoch_seconds);
+		return;
+	}
+	
+	//find position to insert
+	alarm_node * curr = alarm_list_head;
+
+	//MUTEX ACQUIRE NEEDED HERE?
+	//CONCURRENCY IS POSSIBLE, BUT WE USE ONLY 1 THREAD FOR V2X APPLICATION
+
+	if (curr->alarm_epoch_seconds > newAlarmNode->alarm_epoch_seconds) {
+		alarm_list_head->prev = newAlarmNode;
+		newAlarmNode->prev = NULL;
+		newAlarmNode->next = alarm_list_head;
+		alarm_list_head = newAlarmNode;
+		return;
+	}
+
+	while (curr->next) {
+		curr = curr->next;
+		//position was found
+		if (curr->alarm_epoch_seconds > newAlarmNode->alarm_epoch_seconds) {
+			newAlarmNode->next = curr;
+			newAlarmNode->prev = curr->prev;
+			(curr->prev)->next = newAlarmNode;
+			curr->prev = newAlarmNode;
+			return;
+		}
+	}
+	
+	//insert at tail
+	curr->next = newAlarmNode;
+	newAlarmNode->prev = curr;
+	newAlarmNode->next = NULL;
+	
+	//MUTEX RELEASE NEEDED HERE?
 	
 }
 
-void setNextAlarmRoutine(rtc_callback_t callback) {
-	rtc_set_callback(callback);
+//find next unexpired alarm
+alarm_node * peakNextAlarmNode(alarm_node ** head) {
+	uint32_t curr_time = (uint32_t)((uint32_t)soft_counter << 16) + (uint32_t)rtc_data.alarm_high;
+	
+	if (!(*head))
+		return NULL;
+
+	if (!(*head)->expired && (*head)->alarm_epoch_seconds >= curr_time )
+		return *head;
+
+	alarm_node * curr = *head;
+
+	while (curr->next) {
+		curr = curr->next;
+		if (!curr->expired && curr->alarm_epoch_seconds >= curr_time)
+			return curr;
+	}
+	return NULL;
 }
 
-alarm_node * popNextAlarmNode(alarm_node * head) {
+void removeExpiredAlarms () {
 
-	alarm_node * earliest = head;
-	alarm_node * curr = head;
+	if (!alarm_list_head)
+		return;
 
-	while (curr) {
+	alarm_node * curr = alarm_list_head;
+
+	uint32_t curr_time = (uint32_t)((uint32_t)soft_counter << 16) + (uint32_t)rtc_data.counter_high;
+
+	do {
+		
+		if (curr->alarm_epoch_seconds <= curr_time ) {
+			if (curr->next) {
+				alarm_list_head = curr->next;
+				free(curr);
+				alarm_list_head->prev = NULL;
+				curr = alarm_list_head;
+			}
+			else {
+				free(curr);
+				alarm_list_head = NULL;
+				return;
+			}
+		}
+		else
+			return;
+		
+	} while (curr);
+}
+
+
+alarm_node * extractNextAlarmNode(alarm_node ** head) {
+
+	alarm_node * earliest = *head;
+	alarm_node * curr = *head;
+
+	while (curr->next) {
+		curr = curr->next;
 		if (curr->alarm_epoch_seconds < earliest->alarm_epoch_seconds) {
 			earliest = curr;
 		}
-		curr = curr->next;
 	}
 
-	/* TODO: TEST CASES TO POP EARLIEST*/
-	if (earliest == head) {
-		head = head->next;
+	//check if there's a left node
+	//if there's a right node, then we reassign
+	// NODE-> <-EARLIEST-> <-NODE
+	if (earliest->prev && earliest->next) {
+		(earliest->next)->prev = earliest->prev;
+		(earliest->prev)->next = earliest->next;
 	}
-
+	//check if head and if there's any other alarm nodes
+	else if (earliest == *head) {
+		if ((*head)->next) {
+			*head = (*head)->next;
+			(*head)->prev = NULL;
+		}
+	}
+	//check if tail
 	else if (!earliest->next) {
-		earliest->prev = NULL;
-	}
-
-	else {
-		earliest->prev->next = earliest->next;
-		earliest->next->prev = earliest->prev;
+		(earliest->prev)->next = NULL;
 	}
 
 	return earliest;
 }
 
-
-
-
 //Redefined from rtc.c
 ISR(RTC_OVF_vect)
 {
-	ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
-	rtc_data.counter_high++;
-	soft_counter++;
-	/*
-	if (rtc_data.counter_high++ == 0){
-		//ioport_set_pin_level(LED_0_PIN,!ioport_get_pin_level(LED_0_PIN));
+	if (++(rtc_data.counter_high) == 0) 
 		soft_counter++;
+}
+
+//Redefined from rtc.c
+//Should wake the device at regular intervals RTC_COMP_vect
+ISR(RTC_COMP_vect)
+{
+	//uint32_t curr_time = (uint32_t)((uint32_t)soft_counter << 16) | (uint32_t)rtc_data.counter_high;
+	//convert to epoch time
+	uint32_t curr_epoch_time = (uint32_t)(((uint32_t)((uint32_t)soft_counter << 16) | (uint32_t)rtc_data.counter_high));
+	curr_epoch_time <<= 2;
+	curr_epoch_time |= (uint32_t)(RTC.CNT/CLOCK_FREQ);
+	
+	uint32_t alarm_time = ((uint32_t)((uint32_t)rtc_data.alarm_high << 16) | (uint32_t)rtc_data.alarm_low);
+
+	if (curr_epoch_time > alarm_time && alarm_curr_ref && !alarm_curr_ref->expired) {
+		RTC.INTCTRL = RTC_OVERFLOW_INT_LEVEL;
+		if (rtc_data.callback) {
+			uint32_t count = ((uint32_t)rtc_data.counter_high << 16)
+					| RTC.CNT;
+	
+			//previously alarm_low referenced the physical clock cycles
+			uint32_t alarm = ((uint32_t)rtc_data.alarm_high << 16)
+					| rtc_data.alarm_low;
+			/* Workaround for errata. Count might not be updated
+			 * when waking up from sleep, so in this case use alarm
+			 * time plus one.
+			 */
+			if (alarm >= count)
+				count = alarm + 1;
+			rtc_data.callback(count);
+			alarm_curr_ref->expired = 1;
+			
+			/* 
+			 * kevinC
+			 * Need to check a queue here to see 
+			 * if there is another alarm to be set
+			 * peak from priority queue (pq) which  will hold
+			 * tuples of (time,func*). The key for pq elements
+			 * is time.
+			 */
+			setNextAlarmRoutine();
+		}
 	}
-	*/
 }

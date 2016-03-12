@@ -62,7 +62,24 @@ src/V2X/Real Time Clock/vrtc.d src/V2X/Real Time Clock/vrtc.o: \
  ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h \
  ../src/config/conf_sleepmgr.h \
  ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h \
+ ../src/ASF/common/services/serial/serial.h \
+ ../src/ASF/common/services/serial/xmega_usart/usart_serial.h \
+ ../src/ASF/xmega/drivers/usart/usart.h ../src/config/conf_usart_serial.h \
+ ../src/ASF/common/services/usb/class/cdc/usb_protocol_cdc.h \
+ ../src/ASF/common/services/usb/class/cdc/device/udi_cdc.h \
+ ../src/config/conf_usb.h \
+ ../src/ASF/common/services/usb/class/cdc/device/udi_cdc_conf.h \
+ ../src/ASF/common/services/usb/usb_protocol.h \
+ ../src/ASF/common/services/usb/usb_atmel.h \
+ ../src/ASF/common/services/usb/udc/udd.h \
+ ../src/ASF/common/services/usb/udc/udc_desc.h \
+ ../src/ASF/common/services/usb/udc/udi.h \
+ ../src/ASF/common/services/usb/udc/udc_desc.h \
+ ../src/ASF/common/services/usb/udc/udi.h \
+ ../src/ASF/common/services/usb/udc/udc.h \
+ ../src/ASF/common/services/usb/udc/udd.h \
  ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h \
+ ../src/V2X/Real\ Time\ Clock/epoch.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\string.h
@@ -207,7 +224,43 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 
 ../src/ASF/common/services/sleepmgr/xmega/sleepmgr.h:
 
+../src/ASF/common/services/serial/serial.h:
+
+../src/ASF/common/services/serial/xmega_usart/usart_serial.h:
+
+../src/ASF/xmega/drivers/usart/usart.h:
+
+../src/config/conf_usart_serial.h:
+
+../src/ASF/common/services/usb/class/cdc/usb_protocol_cdc.h:
+
+../src/ASF/common/services/usb/class/cdc/device/udi_cdc.h:
+
+../src/config/conf_usb.h:
+
+../src/ASF/common/services/usb/class/cdc/device/udi_cdc_conf.h:
+
+../src/ASF/common/services/usb/usb_protocol.h:
+
+../src/ASF/common/services/usb/usb_atmel.h:
+
+../src/ASF/common/services/usb/udc/udd.h:
+
+../src/ASF/common/services/usb/udc/udc_desc.h:
+
+../src/ASF/common/services/usb/udc/udi.h:
+
+../src/ASF/common/services/usb/udc/udc_desc.h:
+
+../src/ASF/common/services/usb/udc/udi.h:
+
+../src/ASF/common/services/usb/udc/udc.h:
+
+../src/ASF/common/services/usb/udc/udd.h:
+
 ../src/ASF/xmega/boards/xmega_a1u_xplained_pro/xmega_a1u_xplained_pro.h:
+
+../src/V2X/Real\ Time\ Clock/epoch.h:
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h:
 

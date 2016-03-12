@@ -2,15 +2,29 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\common\services\serial\usart_serial.c
+
 src\ASF\common\services\sleepmgr\xmega\sleepmgr.c
+
+src\ASF\common\services\usb\class\cdc\device\example\atxmega128a1u_xmega_a1u_xplained_pro\ui.c
+
+src\ASF\common\services\usb\class\cdc\device\udi_cdc.c
+
+src\ASF\common\services\usb\class\cdc\device\udi_cdc_desc.c
+
+src\ASF\common\services\usb\udc\udc.c
 
 src\ASF\xmega\drivers\rtc\rtc.c
 
+src\ASF\xmega\drivers\usart\usart.c
+
+src\ASF\xmega\drivers\usb\usb_device.c
+
+src\uart_xmega.c
+
 src\V2X\Power Sequence\powerSeq.c
 
-src\V2X\Real Time Clock\dateToEpoch.c
-
-src\V2X\Real Time Clock\parseISO.c
+src\V2X\Real Time Clock\epoch.c
 
 src\V2X\Real Time Clock\vrtc.c
 

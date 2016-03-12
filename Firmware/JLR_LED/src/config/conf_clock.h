@@ -91,8 +91,8 @@
  * alternative clock source (e.g. the internal 2MHz RC Oscillator, multiplied
  * to a higher frequency via the internal PLL module) must be used instead.
  */
-#define CONFIG_USBCLK_SOURCE                USBCLK_SRC_RCOSC
-//#define CONFIG_OSC_RC32_CAL                 48000000UL
+//#define CONFIG_USBCLK_SOURCE                USBCLK_SRC_RCOSC  //changed to below
+#define CONFIG_OSC_RC32_CAL                 48000000UL //kevin C
 //#define CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC  OSC_ID_USBSOF
 
 /* Use to enable and select RTC clock source */
